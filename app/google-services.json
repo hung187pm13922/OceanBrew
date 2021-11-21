@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "860012867047",
+    "firebase_url": "https://oceanbrrr-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "oceanbrrr",
+    "storage_bucket": "oceanbrrr.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:860012867047:android:4764da6c23fe72f5e82142",
+        "android_client_info": {
+          "package_name": "com.example.oceanbrew"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "860012867047-t888hh2o7tt9u1uqo1edcotms1kf0lpk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDdsNowyIF7XeAYyNBhgXKvsAoqjaKnzAk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "860012867047-t888hh2o7tt9u1uqo1edcotms1kf0lpk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

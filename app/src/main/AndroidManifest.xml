@@ -16,6 +16,7 @@
         <activity
             android:name=".menuu"
             android:exported="true">
+
         </activity>
         <activity
             android:name=".Login"

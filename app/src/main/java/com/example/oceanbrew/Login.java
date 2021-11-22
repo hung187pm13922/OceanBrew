@@ -81,7 +81,6 @@ public class Login extends AppCompatActivity {
 
                         @Override
                         public void onCancelled(@NonNull DatabaseError error) {
-
                         }
                     });
                 }

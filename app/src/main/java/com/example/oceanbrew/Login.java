@@ -23,9 +23,9 @@ import com.google.firebase.database.ValueEventListener;
 
 public class Login extends AppCompatActivity {
 
-    TextView mSignUp;
+
     EditText mUsername, mPassword;
-    Button mLogin;
+    Button mLogin, signup;
 
     DatabaseReference mAccountsDbRef, mCheckUsernameDbRef;
 
@@ -33,9 +33,9 @@ public class Login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        mSignUp = findViewById(R.id.tv_signup_login);
+        signup = findViewById(R.id.btn_signup);
 
-        mSignUp.setOnClickListener(new View.OnClickListener() {
+        signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(Login.this, Register.class));

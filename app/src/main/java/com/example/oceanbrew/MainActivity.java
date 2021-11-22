@@ -10,14 +10,14 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    TextView mStart;
+    ImageButton mStart;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mStart = findViewById(R.id.tv_hello);
+        mStart = findViewById(R.id.btn_start);
 
         mStart.setOnClickListener(new View.OnClickListener() {
             @Override

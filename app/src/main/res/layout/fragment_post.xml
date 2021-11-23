@@ -9,9 +9,9 @@
     android:background="@mipmap/body">
 
     <ScrollView
-        android:id="@+id/scrollView3"
         android:layout_width="410dp"
         android:layout_height="137dp"
+        android:id="@+id/scrollView3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -30,15 +30,31 @@
                 android:layout_height="400dp"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="20dp"
-                android:stretchColumns="*"
 
+                android:isScrollContainer="true"
+                android:stretchColumns="*"
+                android:verticalScrollbarPosition="defaultPosition"
                 app:layout_constraintVertical_bias="0.205">
 
                 <TableRow
                     android:layout_width="match_parent"
-                    android:layout_height="91dp">
+                    android:layout_height="match_parent">
 
+                    <TextView
+                        android:text="Name of ingredient"
+                        android:layout_width="88dp"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        tools:ignore="TouchTargetSizeCheck" />
 
+                    <TextView
+                        android:text="Quantification"
+                        android:layout_width="59dp"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        tools:ignore="TouchTargetSizeCheck" />
+
+                    <TextView/>
                 </TableRow>
 
                 <TableRow
@@ -47,21 +63,16 @@
 
                     <EditText
                         android:layout_width="88dp"
-                        android:hint="Name of Ingredient"
                         android:textColor="@color/black"
-                        android:textColorHint="#46FFFFFF"
-                        android:textStyle="bold"
                         tools:ignore="TouchTargetSizeCheck" />
 
                     <EditText
                         android:layout_width="59dp"
-                        android:hint="Quantification"
                         android:textColor="@color/black"
-                        android:textColorHint="#46FFFFFF"
-                        android:textStyle="bold"
                         tools:ignore="TouchTargetSizeCheck" />
-
-                    <TextView android:text="" />
+                    <TextView
+                        android:id="@+id/first_delete"
+                        android:text="Delete"/>
                 </TableRow>
 
                 <TableRow
@@ -146,7 +157,7 @@
         android:background="@color/black"
         android:backgroundTint="#B2FFFFFF"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:inputType="text"
         android:textColor="#FFFFFF"
         android:textColorHighlight="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
@@ -155,14 +166,14 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/ed_nameofdrinks3"
+        android:id="@+id/ed_garnish"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="376dp"
         android:layout_height="84dp"
         android:background="@color/black"
         android:backgroundTint="#B2FFFFFF"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:inputType="text"
         android:textColor="#FFFFFF"
         android:textColorHighlight="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -173,14 +184,14 @@
         app:layout_constraintVertical_bias="0.565" />
 
     <EditText
-        android:id="@+id/ed_nameofdrinks5"
+        android:id="@+id/ed_method"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="376dp"
         android:layout_height="84dp"
         android:background="@color/black"
         android:backgroundTint="#B2FFFFFF"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:inputType="text"
         android:textColor="#FFFFFF"
         android:textColorHighlight="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -233,7 +244,7 @@
         app:layout_constraintVertical_bias="0.649" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btn_send"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="92dp"
@@ -244,16 +255,15 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Spinner
-        android:id="@+id/spinner_employee"
+        android:id="@+id/spn_category"
         android:layout_width="137dp"
         android:layout_height="29dp"
-        android:layout_weight="1"
         android:popupBackground="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.908"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.467" />
+        app:layout_constraintVertical_bias="0.467"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

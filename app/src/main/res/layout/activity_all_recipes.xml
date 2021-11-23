@@ -14,6 +14,19 @@
         android:layout_height="645dp">
 
 
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="62dp"
+            android:layout_height="75dp"
+
+            android:src="@mipmap/btnback"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.228" />
+
         <SearchView
 
             android:layout_width="315dp"
@@ -31,23 +44,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.06"
-            tools:ignore="MissingConstraints" />
-
-        <Button
-            android:id="@+id/btn_allrecipes"
-            style="?android:attr/borderlessButtonStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/amaranth"
-            android:text="All recipes"
-            android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.221"
-            app:rippleColor="#00FFFFFF"
             tools:ignore="MissingConstraints" />
 
         <ImageView
@@ -76,10 +72,10 @@
 
         <TextView
             android:id="@+id/textView"
-            android:layout_width="93dp"
-            android:layout_height="58dp"
+            android:layout_width="159dp"
+            android:layout_height="57dp"
             android:fontFamily="@font/amaranth"
-            android:text="Filter"
+            android:text="All Recipes"
             android:textAllCaps="false"
             android:textColor="#FFFFFF"
             android:textSize="34sp"
@@ -89,19 +85,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.243"
-            tools:ignore="MissingConstraints" />
-
-        <ImageView
-            android:id="@+id/imageView5"
-            android:layout_width="86dp"
-            android:layout_height="11dp"
-            android:src="@mipmap/gach"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.96"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.255"
             tools:ignore="MissingConstraints" />
 
         <androidx.cardview.widget.CardView
@@ -117,13 +100,15 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="296dp">
+                android:layout_height="155dp">
 
                 <ImageView
                     android:id="@+id/imageView7"
-                    android:layout_width="276dp"
-                    android:layout_height="267dp"
+                    android:layout_width="161dp"
+                    android:layout_height="155dp"
+                    android:layout_alignParentLeft="true"
                     android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="10dp"
                     android:src="@mipmap/ic_launcher" />
 
                 <TextView
@@ -131,11 +116,54 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
-                    android:layout_marginLeft="80dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginLeft="180dp"
+                    android:layout_marginTop="15dp"
                     android:fontFamily="@font/titan_one"
-                    android:text="TextView"
+                    android:text="Name Drink"
                     android:textColor="#FFFFFF"
                     android:textSize="34sp" />
+
+                <TextView
+                    android:id="@+id/textView9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginLeft="180dp"
+                    android:layout_marginTop="60dp"
+                    android:fontFamily="@font/titan_one"
+                    android:text="Type of drink:"
+                    android:textColor="#FFFFFF"
+                    android:textSize="21sp" />
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginLeft="180dp"
+                    android:layout_marginTop="85dp"
+                    android:fontFamily="@font/titan_one"
+                    android:text="xx"
+                    android:textColor="#FFFFFF"
+                    android:textSize="21sp" />
+
+                <CheckBox
+                    android:layout_width="155dp"
+                    android:layout_height="33dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginStart="80dp"
+                    android:layout_marginTop="80dp"
+                    android:layout_marginEnd="80dp"
+                    android:layout_marginRight="80dp"
+                    android:layout_marginBottom="10dp"
+                    android:button="@drawable/wish_onclick"
+                    android:text="Add to wishlist"
+                    android:textColor="#FFFFFF"
+                    android:textSize="15dp" />
             </RelativeLayout>
         </androidx.cardview.widget.CardView>
 

@@ -3,26 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/84334/AndroidStudioProjects/OceanBrrrr/app/src/main/res/drawable/checkbox_size.xml" value="0.2703125" />
-        <entry key="..\:/Users/84334/AndroidStudioProjects/OceanBrrrr/app/src/main/res/drawable/ic_wish_active.xml" value="0.2703125" />
-        <entry key="..\:/Users/84334/AndroidStudioProjects/OceanBrrrr/app/src/main/res/drawable/ic_wish_outline.xml" value="0.2703125" />
-        <entry key="..\:/Users/84334/AndroidStudioProjects/OceanBrrrr/app/src/main/res/drawable/item_selector.xml" value="0.2703125" />
-        <entry key="..\:/Users/84334/AndroidStudioProjects/OceanBrrrr/app/src/main/res/drawable/wish_onclick.xml" value="0.2703125" />
-        <entry key="..\:/Users/84334/AndroidStudioProjects/OceanBrrrr/app/src/main/res/layout/activity_admin.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/84334/AndroidStudioProjects/OceanBrrrr/app/src/main/res/layout/activity_admin_add_recipes.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/84334/AndroidStudioProjects/OceanBrrrr/app/src/main/res/layout/activity_admin_browse_recipes.xml" value="0.24010416666666667" />
-        <entry key="..\:/Users/84334/AndroidStudioProjects/OceanBrrrr/app/src/main/res/layout/activity_all_recipes.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/84334/AndroidStudioProjects/OceanBrrrr/app/src/main/res/layout/activity_drinks_detail.xml" value="0.24010416666666667" />
         <entry key="..\:/Users/84334/AndroidStudioProjects/OceanBrrrr/app/src/main/res/layout/activity_login.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/84334/AndroidStudioProjects/OceanBrrrr/app/src/main/res/layout/activity_main.xml" value="0.12360688956433637" />
         <entry key="..\:/Users/84334/AndroidStudioProjects/OceanBrrrr/app/src/main/res/layout/activity_menuu.xml" value="0.264" />
         <entry key="..\:/Users/84334/AndroidStudioProjects/OceanBrrrr/app/src/main/res/layout/activity_register.xml" value="0.264" />
         <entry key="..\:/Users/84334/AndroidStudioProjects/OceanBrrrr/app/src/main/res/layout/fragment_contact.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/84334/AndroidStudioProjects/OceanBrrrr/app/src/main/res/layout/fragment_home_page.xml" value="0.25" />
         <entry key="..\:/Users/84334/AndroidStudioProjects/OceanBrrrr/app/src/main/res/layout/fragment_info.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/84334/AndroidStudioProjects/OceanBrrrr/app/src/main/res/layout/fragment_post.xml" value="0.264" />
-        <entry key="..\:/Users/84334/AndroidStudioProjects/OceanBrrrr/app/src/main/res/layout/fragment_wishlist.xml" value="0.264" />
-        <entry key="..\:/Users/84334/AndroidStudioProjects/OceanBrrrr/app/src/main/res/menu/item_menu.xml" value="0.25416666666666665" />
       </map>
     </option>
   </component>

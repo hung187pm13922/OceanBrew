@@ -46,15 +46,23 @@ public class Register extends AppCompatActivity {
                 String password = mPassword.getText().toString();
                 String repassword = mRePassword.getText().toString();
 
-                if (TextUtils.isEmpty(username) || TextUtils.isEmpty(password) || TextUtils.isEmpty(repassword)) {
-                    Toast.makeText(Register.this, "Vui long nhap day du thong tin!", Toast.LENGTH_SHORT).show();
+                if (TextUtils.isEmpty(username)) {
+                    mUsername.setError("Username required!");
+                    mUsername.requestFocus();
+                } else if (TextUtils.isEmpty(password)) {
+                    mPassword.setError("Password required!");
+                    mPassword.requestFocus();
+                } else if (TextUtils.isEmpty(repassword)) {
+                    mRePassword.setError("Comfirm password, please!");
+                    mRePassword.requestFocus();
                 } else {
                     mCheckUsernameDbRef = FirebaseDatabase.getInstance().getReference("Accounts/"+username);
                     mCheckUsernameDbRef.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
                             if (snapshot.child("username").exists()) {
-                                Toast.makeText(Register.this, "Username da ton tai!", Toast.LENGTH_SHORT).show();
+                                mUsername.setError("Username is existed!");
+                                mUsername.requestFocus();
                             } else {
                                 if (password.equals(repassword)) {
                                     Accounts accounts = new Accounts(username, password, "0");
@@ -62,7 +70,8 @@ public class Register extends AppCompatActivity {
                                     Toast.makeText(Register.this, "Account is created!", Toast.LENGTH_SHORT).show();
                                     startActivity(new Intent(Register.this, Login.class));
                                 } else {
-                                    Toast.makeText(Register.this, "Xac nhan password sai!", Toast.LENGTH_SHORT).show();
+                                    mRePassword.setError("Incorrect password!");
+                                    mRePassword.requestFocus();
                                 }
                             }
                         }

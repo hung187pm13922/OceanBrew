@@ -104,40 +104,15 @@
             app:layout_constraintVertical_bias="0.255"
             tools:ignore="MissingConstraints" />
 
-        <androidx.cardview.widget.CardView
-            android:layout_width="411dp"
-            android:layout_height="395dp"
-            app:cardBackgroundColor="@color/nocolor"
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="409dp"
+            android:layout_height="443dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.879">
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="296dp">
-
-                <ImageView
-                    android:id="@+id/imageView7"
-                    android:layout_width="276dp"
-                    android:layout_height="267dp"
-                    android:layout_centerHorizontal="true"
-                    android:src="@mipmap/ic_launcher" />
-
-                <TextView
-                    android:id="@+id/textView2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:layout_marginLeft="80dp"
-                    android:fontFamily="@font/titan_one"
-                    android:text="TextView"
-                    android:textColor="#FFFFFF"
-                    android:textSize="34sp" />
-            </RelativeLayout>
-        </androidx.cardview.widget.CardView>
+            app:layout_constraintVertical_bias="1.0" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

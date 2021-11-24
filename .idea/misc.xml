@@ -3,9 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/StudioProject/OceanBrew/app/src/main/res/layout/activity_all_recipes.xml" value="0.13020833333333334" />
+        <entry key="..\:/StudioProject/OceanBrew/app/src/main/res/layout/activity_admin.xml" value="0.23097826086956522" />
+        <entry key="..\:/StudioProject/OceanBrew/app/src/main/res/layout/activity_admin_add_recipes.xml" value="0.23097826086956522" />
+        <entry key="..\:/StudioProject/OceanBrew/app/src/main/res/layout/activity_admin_browse_recipes.xml" value="0.23097826086956522" />
+        <entry key="..\:/StudioProject/OceanBrew/app/src/main/res/layout/activity_all_recipes.xml" value="0.2" />
+        <entry key="..\:/StudioProject/OceanBrew/app/src/main/res/layout/activity_drinks_detail.xml" value="0.23097826086956522" />
         <entry key="..\:/StudioProject/OceanBrew/app/src/main/res/layout/design_all_recipes.xml" value="0.23505434782608695" />
         <entry key="..\:/StudioProject/OceanBrew/app/src/main/res/layout/design_homepage.xml" value="0.23505434782608695" />
+        <entry key="..\:/StudioProject/OceanBrew/app/src/main/res/layout/design_info.xml" value="0.23097826086956522" />
         <entry key="..\:/StudioProject/OceanBrew/app/src/main/res/layout/design_wishlist.xml" value="0.23505434782608695" />
         <entry key="..\:/StudioProject/OceanBrew/app/src/main/res/layout/fragment_home_page.xml" value="0.23505434782608695" />
         <entry key="..\:/StudioProject/OceanBrew/app/src/main/res/layout/fragment_wishlist.xml" value="0.13020833333333334" />
@@ -23,8 +28,6 @@
         <entry key="..\:/Users/84334/AndroidStudioProjects/OceanBrrrr/app/src/main/res/layout/activity_main.xml" value="0.12360688956433637" />
         <entry key="..\:/Users/84334/AndroidStudioProjects/OceanBrrrr/app/src/main/res/layout/activity_menuu.xml" value="0.264" />
         <entry key="..\:/Users/84334/AndroidStudioProjects/OceanBrrrr/app/src/main/res/layout/activity_register.xml" value="0.264" />
-        <entry key="..\:/Users/84334/AndroidStudioProjects/OceanBrrrr/app/src/main/res/layout/design_home.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/84334/AndroidStudioProjects/OceanBrrrr/app/src/main/res/layout/design_homepage.xml" value="0.12360688956433637" />
         <entry key="..\:/Users/84334/AndroidStudioProjects/OceanBrrrr/app/src/main/res/layout/fragment_contact.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/84334/AndroidStudioProjects/OceanBrrrr/app/src/main/res/layout/fragment_home_page.xml" value="0.25" />
         <entry key="..\:/Users/84334/AndroidStudioProjects/OceanBrrrr/app/src/main/res/layout/fragment_info.xml" value="0.25416666666666665" />

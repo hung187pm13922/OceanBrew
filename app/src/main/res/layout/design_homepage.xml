@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/black">
+    android:background="@color/nocolor">
 
     <androidx.cardview.widget.CardView
         android:layout_width="408dp"
@@ -31,7 +31,7 @@
                 android:src="@mipmap/ic_launcher" />
 
             <TextView
-                android:id="@+id/tv_nameCategory"
+                android:id="@+id/textView2"
                 android:layout_width="250dp"
                 android:layout_height="91dp"
                 android:layout_alignParentLeft="true"

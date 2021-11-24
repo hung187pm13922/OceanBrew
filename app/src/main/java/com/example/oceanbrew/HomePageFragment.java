@@ -2,11 +2,26 @@ package com.example.oceanbrew;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
+
+import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -23,6 +38,8 @@ public class HomePageFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    RecyclerView mCategoryRcv;
+    CategoryAdapter mCategoryAdapter;
 
     public HomePageFragment() {
         // Required empty public constructor
@@ -58,7 +75,32 @@ public class HomePageFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home_page, container, false);
+        View view = inflater.inflate(R.layout.fragment_home_page, container, false);
+
+        mCategoryRcv =  view.findViewById(R.id.rcv_category);
+        mCategoryRcv.setLayoutManager(new LinearLayoutManager(getActivity()));
+
+        FirebaseRecyclerOptions<Category> options =
+                new FirebaseRecyclerOptions.Builder<Category>()
+                        .setQuery(FirebaseDatabase.getInstance().getReference("Category"), Category.class)
+                        .build();
+
+        mCategoryAdapter = new CategoryAdapter(options);
+        mCategoryRcv.setAdapter(mCategoryAdapter);
+
+        return view;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        mCategoryAdapter.startListening();
+    }
+
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        mCategoryAdapter.stopListening();
     }
 }

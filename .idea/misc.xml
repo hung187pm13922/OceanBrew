@@ -3,6 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/StudioProject/OceanBrew/app/src/main/res/layout/activity_all_recipes.xml" value="0.13020833333333334" />
+        <entry key="..\:/StudioProject/OceanBrew/app/src/main/res/layout/design_all_recipes.xml" value="0.23505434782608695" />
+        <entry key="..\:/StudioProject/OceanBrew/app/src/main/res/layout/design_homepage.xml" value="0.23505434782608695" />
+        <entry key="..\:/StudioProject/OceanBrew/app/src/main/res/layout/design_wishlist.xml" value="0.23505434782608695" />
+        <entry key="..\:/StudioProject/OceanBrew/app/src/main/res/layout/fragment_home_page.xml" value="0.23505434782608695" />
+        <entry key="..\:/StudioProject/OceanBrew/app/src/main/res/layout/fragment_wishlist.xml" value="0.13020833333333334" />
         <entry key="..\:/Users/84334/AndroidStudioProjects/OceanBrrrr/app/src/main/res/drawable/checkbox_size.xml" value="0.2703125" />
         <entry key="..\:/Users/84334/AndroidStudioProjects/OceanBrrrr/app/src/main/res/drawable/ic_wish_active.xml" value="0.2703125" />
         <entry key="..\:/Users/84334/AndroidStudioProjects/OceanBrrrr/app/src/main/res/drawable/ic_wish_outline.xml" value="0.2703125" />

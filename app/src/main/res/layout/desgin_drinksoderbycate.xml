@@ -2,12 +2,11 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/black">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.cardview.widget.CardView
         android:layout_width="410dp"
-        android:layout_height="177dp"
+        android:layout_height="110dp"
         app:cardBackgroundColor="@color/nocolor"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -18,70 +17,59 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="155dp">
+            android:layout_height="wrap_content"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp">
 
             <ImageView
-                android:id="@+id/imageView7"
-                android:layout_width="161dp"
-                android:layout_height="155dp"
+                android:id="@+id/imageDrinks_Cate"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
                 android:layout_alignParentLeft="true"
                 android:layout_centerHorizontal="true"
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="39dp"
                 android:src="@mipmap/ic_launcher" />
 
             <TextView
-                android:id="@+id/tv_nameCategory"
+                android:id="@+id/tv_nameDrinksO"
                 android:layout_width="232dp"
                 android:layout_height="43dp"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginLeft="180dp"
-                android:layout_marginTop="14dp"
+                android:layout_marginLeft="159dp"
+                android:layout_marginTop="7dp"
                 android:fontFamily="sans-serif-medium"
                 android:text="Name Drink"
                 android:textColor="#FFFFFF"
-                android:textSize="25sp" />
+                android:textSize="20dp" />
 
             <TextView
-                android:id="@+id/textView9"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginLeft="180dp"
-                android:layout_marginTop="60dp"
-                android:fontFamily="sans-serif-medium"
-                android:text="Type of drink:"
-                android:textColor="#FFFFFF"
-                android:textSize="21sp" />
-
-            <TextView
-                android:id="@+id/textView4"
+                android:id="@+id/tv_CateOfDrinks"
                 android:layout_width="224dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginLeft="180dp"
-                android:layout_marginTop="85dp"
+                android:layout_marginLeft="159dp"
+                android:layout_marginTop="35dp"
                 android:fontFamily="sans-serif-medium"
                 android:text="xx"
                 android:textColor="#FFFFFF"
                 android:textSize="21sp" />
 
             <CheckBox
-                android:layout_width="155dp"
+                android:layout_width="130dp"
                 android:layout_height="33dp"
+                android:layout_alignParentStart="true"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentBottom="true"
-                android:layout_marginStart="80dp"
-                android:layout_marginTop="80dp"
+                android:layout_marginStart="162dp"
                 android:layout_marginEnd="80dp"
-                android:layout_marginRight="80dp"
-                android:layout_marginBottom="10dp"
+                android:layout_marginRight="118dp"
+                android:layout_marginBottom="-6dp"
                 android:button="@drawable/wish_onclick"
                 android:text="Add to wishlist"
                 android:textColor="#FFFFFF"
-                android:textSize="15dp" />
+                android:textSize="12dp" />
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

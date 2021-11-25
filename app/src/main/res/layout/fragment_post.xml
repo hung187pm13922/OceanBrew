@@ -8,10 +8,11 @@
     tools:context=".MainActivity"
     android:background="@mipmap/body">
 
+
     <ScrollView
+        android:id="@+id/scrollView3"
         android:layout_width="410dp"
         android:layout_height="137dp"
-        android:id="@+id/scrollView3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -41,20 +42,20 @@
                     android:layout_height="match_parent">
 
                     <TextView
-                        android:text="Name of ingredient"
                         android:layout_width="88dp"
+                        android:text="Name of ingredient"
                         android:textColor="@color/black"
                         android:textStyle="bold"
                         tools:ignore="TouchTargetSizeCheck" />
 
                     <TextView
-                        android:text="Quantification"
                         android:layout_width="59dp"
+                        android:text="Quantification"
                         android:textColor="@color/black"
                         android:textStyle="bold"
                         tools:ignore="TouchTargetSizeCheck" />
 
-                    <TextView/>
+                    <TextView />
                 </TableRow>
 
                 <TableRow
@@ -70,9 +71,10 @@
                         android:layout_width="59dp"
                         android:textColor="@color/black"
                         tools:ignore="TouchTargetSizeCheck" />
+
                     <TextView
                         android:id="@+id/first_delete"
-                        android:text="Delete"/>
+                        android:text="Delete" />
                 </TableRow>
 
                 <TableRow
@@ -123,15 +125,15 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/tv_choosePicture"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="Picture"
+        android:layout_marginTop="36dp"
+        android:text="Choose Picture"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.04"
+        app:layout_constraintHorizontal_bias="0.621"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -264,6 +266,6 @@
         app:layout_constraintHorizontal_bias="0.908"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.467"/>
+        app:layout_constraintVertical_bias="0.467" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -219,7 +219,7 @@ public class PostFragment extends Fragment {
                     String Username = sharedPreferences.getString("session_username", "");
                     ///CheckError mốt làm ở đây nha
 
-                    Posts post = new Posts(NameOfDrink, Ingredients, CategorySelected, Garnish, Method, WhenPost, Username, "Waiting for approval");
+                    Posts post = new Posts(Garnish, Ingredients, Method, NameOfDrink, "Waiting for approval", CategorySelected, Username, WhenPost);
                     mPostDbRef.push().setValue(post);
                 }
             }

@@ -79,7 +79,6 @@ public class HomePageFragment extends Fragment {
 
         mCategoryAdapter = new CategoryAdapter(options);
         mCategoryRcv.setAdapter(mCategoryAdapter);
-
         return view;
     }
 

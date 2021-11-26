@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Login"
-    android:background="@mipmap/body">
+    android:background="@mipmap/body"
+    android:id="@+id/activity_login">
     <ImageView
         android:id="@+id/imageView6"
         android:layout_width="94dp"

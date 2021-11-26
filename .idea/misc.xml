@@ -4,9 +4,14 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/StudioProject/OceanBrew/app/src/main/res/layout/activity_all_recipes.xml" value="0.13020833333333334" />
+        <entry key="..\:/StudioProject/OceanBrew/app/src/main/res/layout/activity_recipes_order_by_cate.xml" value="0.15670289855072464" />
         <entry key="..\:/StudioProject/OceanBrew/app/src/main/res/layout/design_all_recipes.xml" value="0.23505434782608695" />
         <entry key="..\:/StudioProject/OceanBrew/app/src/main/res/layout/design_homepage.xml" value="0.23505434782608695" />
+        <entry key="..\:/StudioProject/OceanBrew/app/src/main/res/layout/design_recipes_orderby_cate.xml" value="0.1793478260869565" />
         <entry key="..\:/StudioProject/OceanBrew/app/src/main/res/layout/design_wishlist.xml" value="0.23505434782608695" />
+        <entry key="..\:/StudioProject/OceanBrew/app/src/main/res/layout/fragment_admin.xml" value="0.25407608695652173" />
+        <entry key="..\:/StudioProject/OceanBrew/app/src/main/res/layout/fragment_drinks_detail.xml" value="0.1793478260869565" />
+        <entry key="..\:/StudioProject/OceanBrew/app/src/main/res/layout/fragment_drinks_oder_by_cate.xml" value="0.1793478260869565" />
         <entry key="..\:/StudioProject/OceanBrew/app/src/main/res/layout/fragment_home_page.xml" value="0.23505434782608695" />
         <entry key="..\:/StudioProject/OceanBrew/app/src/main/res/layout/fragment_wishlist.xml" value="0.13020833333333334" />
         <entry key="..\:/StudioProject/app/src/main/res/layout/activity_admin.xml" value="0.25" />

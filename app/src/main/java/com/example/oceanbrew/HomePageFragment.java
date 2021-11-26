@@ -2,13 +2,20 @@ package com.example.oceanbrew;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.core.view.MenuItemCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.text.TextUtils;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.SearchView;
 
 import com.example.oceanbrew.adapter.CategoryAdapter;
 import com.example.oceanbrew.model.Category;
@@ -32,6 +39,7 @@ public class HomePageFragment extends Fragment {
     private String mParam2;
     RecyclerView mCategoryRcv;
     CategoryAdapter mCategoryAdapter;
+    SearchView mSearch;
 
     public HomePageFragment() {
         // Required empty public constructor
@@ -78,7 +86,9 @@ public class HomePageFragment extends Fragment {
                         .build();
 
         mCategoryAdapter = new CategoryAdapter(options);
+
         mCategoryRcv.setAdapter(mCategoryAdapter);
+
         return view;
     }
 
@@ -94,4 +104,5 @@ public class HomePageFragment extends Fragment {
         super.onStop();
         mCategoryAdapter.stopListening();
     }
+
 }

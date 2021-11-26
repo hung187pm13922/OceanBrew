@@ -15,6 +15,7 @@
 
         <SearchView
 
+            android:id="@+id/sv_inHomePage"
             android:layout_width="315dp"
             android:layout_height="45dp"
             android:background="@drawable/round"

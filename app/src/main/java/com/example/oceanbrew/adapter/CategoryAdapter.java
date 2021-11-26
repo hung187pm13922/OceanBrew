@@ -1,10 +1,13 @@
 package com.example.oceanbrew.adapter;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.SearchView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -17,8 +20,11 @@ import com.example.oceanbrew.model.Category;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 
+import java.util.ArrayList;
+
 public class CategoryAdapter extends FirebaseRecyclerAdapter<Category,CategoryAdapter.myViewHolder>
 {
+
 
     public CategoryAdapter(@NonNull FirebaseRecyclerOptions<Category> options) {
         super(options);
@@ -26,6 +32,7 @@ public class CategoryAdapter extends FirebaseRecyclerAdapter<Category,CategoryAd
 
     @Override
     protected void onBindViewHolder(@NonNull myViewHolder holder, int position, @NonNull Category model) {
+
         holder.mNameCategory.setText(model.getName());
         if (model.getName().equals("Tea")) {
             holder.mImageCategory.setImageResource(R.mipmap.tea);
@@ -56,12 +63,15 @@ public class CategoryAdapter extends FirebaseRecyclerAdapter<Category,CategoryAd
         TextView mNameCategory;
         ImageView mImageCategory;
         RelativeLayout mLayoutItemCate;
+        SearchView mSearch;
         public myViewHolder(@NonNull View itemView) {
             super(itemView);
 
             mNameCategory = itemView.findViewById(R.id.tv_nameCategory);
             mImageCategory = itemView.findViewById(R.id.img_category);
             mLayoutItemCate = itemView.findViewById(R.id.layout_item_category);
+            mSearch = itemView.findViewById(R.id.sv_inHomePage);
         }
     }
+
 }

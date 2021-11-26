@@ -1,4 +1,4 @@
-package com.example.oceanbrew;
+package com.example.oceanbrew.model;
 
 public class Accounts {
     String username;

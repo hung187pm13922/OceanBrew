@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.oceanbrew.model.Accounts;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -67,6 +68,14 @@ public class Register extends AppCompatActivity {
                                 if (password.equals(repassword)) {
                                     Accounts accounts = new Accounts(username, password, "0");
                                     mAccountsDbRef.child(username).setValue(accounts);
+
+                                    //Tạo wishlist cho user
+
+                                    DatabaseReference mWishlistDbRef, mCheckCountWishlist;
+                                    mWishlistDbRef = FirebaseDatabase.getInstance().getReference().child("Wishlist");
+                                    Wishlist wishlist = new Wishlist(username, 3);
+                                    mWishlistDbRef.push().setValue(wishlist);
+
                                     Toast.makeText(Register.this, "Account is created!", Toast.LENGTH_SHORT).show();
                                     startActivity(new Intent(Register.this, Login.class));
                                 } else {

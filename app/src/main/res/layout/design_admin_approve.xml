@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="200dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/black">
+    android:background="@color/nocolor">
 
     <androidx.cardview.widget.CardView
         android:layout_width="410dp"
@@ -14,15 +14,13 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        xmlns:app="http://schemas.android.com/apk/res-auto">
+        app:layout_constraintVertical_bias="0.0">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="155dp">
 
             <ImageView
-                android:id="@+id/imageView7"
                 android:layout_width="161dp"
                 android:layout_height="155dp"
                 android:layout_alignParentLeft="true"
@@ -31,7 +29,7 @@
                 android:src="@mipmap/ic_launcher" />
 
             <TextView
-                android:id="@+id/tv_nameCategory"
+                android:id="@+id/tv_nameDrinksPost"
                 android:layout_width="232dp"
                 android:layout_height="43dp"
                 android:layout_alignParentLeft="true"
@@ -44,7 +42,6 @@
                 android:textSize="25sp" />
 
             <TextView
-                android:id="@+id/textView9"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
@@ -66,6 +63,31 @@
                 android:layout_marginTop="85dp"
                 android:fontFamily="sans-serif-medium"
                 android:text="xx"
+                android:textColor="#FFFFFF"
+                android:textSize="21sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="180dp"
+                android:layout_marginTop="118dp"
+                android:fontFamily="sans-serif-medium"
+                android:text="By:"
+                android:textColor="#FFFFFF"
+                android:textSize="21sp" />
+
+            <TextView
+                android:id="@+id/tv_usernaneofPost"
+                android:layout_width="185dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="214dp"
+                android:layout_marginTop="118dp"
+                android:fontFamily="sans-serif-medium"
+                android:text="username"
                 android:textColor="#FFFFFF"
                 android:textSize="21sp" />
 

@@ -4,11 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class AdminBrowseRecipes extends AppCompatActivity {
+public class RecipesOrderByCate extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_admin_browse_recipes);
+        setContentView(R.layout.activity_recipes_order_by_cate);
     }
 }

@@ -1,10 +1,16 @@
 package com.example.oceanbrew;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
@@ -12,7 +18,6 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -22,20 +27,16 @@ import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.oceanbrew.model.Posts;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.Date;
-import java.util.List;
-import java.util.Locale;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -173,6 +174,7 @@ public class PostFragment extends Fragment {
                 }
             }
         });
+
         mSend = view.findViewById(R.id.btn_send);
         mSend.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -217,7 +219,7 @@ public class PostFragment extends Fragment {
                     String Username = sharedPreferences.getString("session_username", "");
                     ///CheckError mốt làm ở đây nha
 
-                    Posts post = new Posts(NameOfDrink, Ingredients, CategorySelected, Garnish, Method, WhenPost, Username, "Waiting for approval");
+                    Posts post = new Posts(Garnish, Ingredients, Method, NameOfDrink, "Waiting for approval", CategorySelected, Username, WhenPost);
                     mPostDbRef.push().setValue(post);
                 }
             }

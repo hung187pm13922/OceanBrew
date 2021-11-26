@@ -31,7 +31,7 @@
                 android:src="@mipmap/ic_launcher" />
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/tv_nameCategory"
                 android:layout_width="232dp"
                 android:layout_height="43dp"
                 android:layout_alignParentLeft="true"
@@ -57,7 +57,7 @@
                 android:textSize="21sp" />
 
             <TextView
-                android:id="@+id/textView4"
+                android:id="@+id/tv_cateofDrinksPost"
                 android:layout_width="224dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"

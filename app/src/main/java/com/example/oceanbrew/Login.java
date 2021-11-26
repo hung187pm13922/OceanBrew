@@ -85,7 +85,7 @@ public class Login extends AppCompatActivity {
                                         startActivity(new Intent(Login.this, menuu.class));
                                         finish();
                                     } else if (role.equals("1")){
-                                        getSupportFragmentManager().beginTransaction().replace(R.id.activity_login,new Admin()).commit();
+                                        startActivity(new Intent(Login.this,Admin.class));
                                     }
                                 } else {
                                     mPassword.setError("Incorrect password!");

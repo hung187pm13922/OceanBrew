@@ -1,13 +1,8 @@
 package com.example.oceanbrew.adapter;
 
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.media.Image;
-import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -16,43 +11,59 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
 import com.example.oceanbrew.DrinksDetailFragment;
-import com.example.oceanbrew.HomePageFragment;
+import com.example.oceanbrew.DrinksDetailWishlistFragment;
 import com.example.oceanbrew.R;
 import com.example.oceanbrew.model.Drinks;
 import com.example.oceanbrew.model.Wishlist;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
 
-public class DrinksOderByCateAdapter extends FirebaseRecyclerAdapter<Drinks, DrinksOderByCateAdapter.myViewHolder> {
+import java.util.ArrayList;
+import java.util.List;
 
-    public DrinksOderByCateAdapter(@NonNull FirebaseRecyclerOptions<Drinks> options) {
+public class WishlistAdapter extends FirebaseRecyclerAdapter<Wishlist, WishlistAdapter.myViewHolder> {
+
+    public WishlistAdapter(@NonNull FirebaseRecyclerOptions<Wishlist> options) {
         super(options);
     }
 
     @Override
-    protected void onBindViewHolder(@NonNull myViewHolder holder, int position, @NonNull Drinks model) {
-        holder.mNameDrinks.setText(model.getNameDrinks());
+    protected void onBindViewHolder(@NonNull myViewHolder holder, int position, @NonNull Wishlist model) {
+        holder.mNameDrinks.setText(model.getNameofDrinks());
         holder.mCateOfDrinks.setText("Type of Drinks: "+model.getCategory());
+        List<Drinks> drinks = new ArrayList<>();
         holder.mRelativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AppCompatActivity activity=(AppCompatActivity)v.getContext();
-                activity.getSupportFragmentManager()
-                        .beginTransaction().replace(R.id.body_container,
-                        new DrinksDetailFragment(model.getNameDrinks(), model.getIngradients(), model.getGarnish(), model.getMethol(), model.getCategory()))
-                        .addToBackStack(null).commit();
+                DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Drinks");
+                Query query = databaseReference.orderByChild("nameDrinks").equalTo(model.getNameofDrinks());
+                query.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        for (DataSnapshot data : snapshot.getChildren()){
+                            drinks.add(data.getValue(Drinks.class));
+                        }
+                        AppCompatActivity activity=(AppCompatActivity)v.getContext();
+                        activity.getSupportFragmentManager()
+                                .beginTransaction().replace(R.id.body_container,
+                                new DrinksDetailWishlistFragment(drinks.get(0).getNameDrinks(), drinks.get(0).getGarnish(), drinks.get(0).getMethol(), drinks.get(0).getIngradients(), drinks.get(0).getCategory()))
+                                .addToBackStack(null).commit();
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
             }
+
         });
     }
 

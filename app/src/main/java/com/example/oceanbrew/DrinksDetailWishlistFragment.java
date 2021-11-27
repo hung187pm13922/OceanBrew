@@ -28,10 +28,10 @@ import com.google.firebase.database.ValueEventListener;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link DrinksDetailFragment#newInstance} factory method to
+ * Use the {@link DrinksDetailWishlistFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class DrinksDetailFragment extends Fragment {
+public class DrinksDetailWishlistFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -47,11 +47,11 @@ public class DrinksDetailFragment extends Fragment {
     String Ingradients;
     String Category;
 
-    public DrinksDetailFragment() {
-        // Required empty public constructor
+    public DrinksDetailWishlistFragment() {
+
     }
 
-    public DrinksDetailFragment(String drinksOfName, String ingradients, String garnish, String methol, String category) {
+    public DrinksDetailWishlistFragment(String drinksOfName, String garnish, String methol, String ingradients, String category) {
         DrinksOfName = drinksOfName;
         Garnish = garnish;
         Methol = methol;
@@ -65,11 +65,11 @@ public class DrinksDetailFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment DrinksDetailFragment.
+     * @return A new instance of fragment DrinksDetailWishlistFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static DrinksDetailFragment newInstance(String param1, String param2) {
-        DrinksDetailFragment fragment = new DrinksDetailFragment();
+    public static DrinksDetailWishlistFragment newInstance(String param1, String param2) {
+        DrinksDetailWishlistFragment fragment = new DrinksDetailWishlistFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -90,7 +90,7 @@ public class DrinksDetailFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_drinks_detail, container, false);
+        View view = inflater.inflate(R.layout.fragment_drinks_detail_wishlist, container, false);
 
         TextView mNameDrinks, mGarnish, mMethol;
         mNameDrinks = view.findViewById(R.id.tv_NameDrinks);
@@ -124,7 +124,7 @@ public class DrinksDetailFragment extends Fragment {
                 AppCompatActivity activity=(AppCompatActivity)v.getContext();
                 activity.getSupportFragmentManager()
                         .beginTransaction().replace(R.id.body_container,
-                        new DrinksOderByCateFragment(Category))
+                        new WishlistFragment())
                         .addToBackStack(null).commit();
             }
         });
@@ -187,6 +187,4 @@ public class DrinksDetailFragment extends Fragment {
 
         return view;
     }
-
-
 }

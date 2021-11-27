@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@mipmap/body"
-    tools:context=".HomePageFragment">
+    tools:context=".AllRecipesFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -14,7 +14,7 @@
 
 
         <ImageView
-            android:id="@+id/imageView2"
+            android:id="@+id/btn_BackHome"
             android:layout_width="62dp"
             android:layout_height="75dp"
 
@@ -87,6 +87,7 @@
             tools:ignore="MissingConstraints" />
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvc_allrecipes"
             android:layout_width="409dp"
             android:layout_height="438dp"
             app:layout_constraintBottom_toBottomOf="parent"

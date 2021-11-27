@@ -7,18 +7,18 @@ public class Drinks {
     String ingradients;
     String methol;
     String nameDrinks;
-    String urlimage;
+    String whenPost;
 
     public Drinks() {
     }
 
-    public Drinks(String category, String garnish, String ingradients, String methol, String nameDrinks, String urlimage) {
+    public Drinks(String category, String garnish, String ingradients, String methol, String nameDrinks, String whenPost) {
         this.category = category;
         this.garnish = garnish;
         this.ingradients = ingradients;
         this.methol = methol;
         this.nameDrinks = nameDrinks;
-        this.urlimage = urlimage;
+        this.whenPost = whenPost;
     }
 
     public String getCategory() {
@@ -61,11 +61,11 @@ public class Drinks {
         this.nameDrinks = nameDrinks;
     }
 
-    public String getUrlimage() {
-        return urlimage;
+    public String getWhenPost() {
+        return whenPost;
     }
 
-    public void setUrlimage(String urlimage) {
-        this.urlimage = urlimage;
+    public void setWhenPost(String whenPost) {
+        this.whenPost = whenPost;
     }
 }

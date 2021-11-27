@@ -3,6 +3,7 @@ package com.example.oceanbrew;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.MenuItemCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -15,6 +16,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.SearchView;
 
 import com.example.oceanbrew.adapter.CategoryAdapter;
@@ -88,6 +90,19 @@ public class HomePageFragment extends Fragment {
         mCategoryAdapter = new CategoryAdapter(options);
 
         mCategoryRcv.setAdapter(mCategoryAdapter);
+
+        Button button;
+        button = view.findViewById(R.id.btn_allrecipes);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AppCompatActivity activity=(AppCompatActivity)v.getContext();
+                activity.getSupportFragmentManager()
+                        .beginTransaction().replace(R.id.body_container,
+                        new AllRecipesFragment())
+                        .addToBackStack(null).commit();
+            }
+        });
 
         return view;
     }

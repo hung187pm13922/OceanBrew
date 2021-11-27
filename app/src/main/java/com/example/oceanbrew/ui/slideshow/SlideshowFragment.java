@@ -1,5 +1,8 @@
 package com.example.oceanbrew.ui.slideshow;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,29 +15,28 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.oceanbrew.R;
+import com.example.oceanbrew.Login;
 import com.example.oceanbrew.databinding.FragmentSlideshowBinding;
 
 public class SlideshowFragment extends Fragment {
 
-    private SlideshowViewModel slideshowViewModel;
     private FragmentSlideshowBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        slideshowViewModel =
-                new ViewModelProvider(this).get(SlideshowViewModel.class);
 
         binding = FragmentSlideshowBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textSlideshow;
-        slideshowViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
+        SharedPreferences sharedPreferences;
+        SharedPreferences.Editor editor;
+        sharedPreferences = getContext().getSharedPreferences("session_admin", Context.MODE_PRIVATE);
+        editor = sharedPreferences.edit();
+        editor.putString("session_admin_username", "");
+        editor.commit();
+        startActivity(new Intent(getActivity().getApplication(), Login.class));
+        getActivity().finish();
+
         return root;
     }
 

@@ -26,17 +26,25 @@ public class Login extends AppCompatActivity {
     Button mLogin;
 
     DatabaseReference mAccountsDbRef, mCheckUsernameDbRef;
-    SharedPreferences sharedPreferences;
-    SharedPreferences.Editor editor;
+    SharedPreferences sharedPreferencesUser;
+    SharedPreferences sharedPreferencesAdmin;
+    SharedPreferences.Editor editorUser;
+    SharedPreferences.Editor editorAdmin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        sharedPreferences  = getSharedPreferences("session_user", Context.MODE_PRIVATE);
-        if (!TextUtils.isEmpty(sharedPreferences.getString("session_username", ""))) {
+        sharedPreferencesUser  = getSharedPreferences("session_user", Context.MODE_PRIVATE);
+        if (!TextUtils.isEmpty(sharedPreferencesUser.getString("session_username", ""))) {
             startActivity(new Intent(this, menuu.class));
+            finish();
+        }
+
+        sharedPreferencesAdmin = getSharedPreferences("session_admin", Context.MODE_PRIVATE);
+        if (!TextUtils.isEmpty(sharedPreferencesAdmin.getString("session_admin_username",""))){
+            startActivity(new Intent(this, Admin.class));
             finish();
         }
 
@@ -78,14 +86,19 @@ public class Login extends AppCompatActivity {
                                 String role = snapshot.child("role").getValue().toString();
                                 if (password.equals(_password)) {
                                     if (role.equals("0")) {
-                                        sharedPreferences = getSharedPreferences("session_user", Context.MODE_PRIVATE);
-                                        editor = sharedPreferences.edit();
-                                        editor.putString("session_username",username);
-                                        editor.commit();
+                                        sharedPreferencesUser = getSharedPreferences("session_user", Context.MODE_PRIVATE);
+                                        editorUser = sharedPreferencesUser.edit();
+                                        editorUser.putString("session_username",username);
+                                        editorUser.commit();
                                         startActivity(new Intent(Login.this, menuu.class));
                                         finish();
                                     } else if (role.equals("1")){
                                         startActivity(new Intent(Login.this,Admin.class));
+                                        sharedPreferencesAdmin = getSharedPreferences("session_admin", Context.MODE_PRIVATE);
+                                        editorAdmin = sharedPreferencesAdmin.edit();
+                                        editorAdmin.putString("session_admin_username",username);
+                                        editorAdmin.commit();
+                                        finish();
                                     }
                                 } else {
                                     mPassword.setError("Incorrect password!");

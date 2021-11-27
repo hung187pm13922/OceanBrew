@@ -1,17 +1,12 @@
 package com.example.oceanbrew;
 
-import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
-import android.net.Uri;
+import android.graphics.Color;
 import android.os.Bundle;
 
-import androidx.activity.result.ActivityResult;
-import androidx.activity.result.ActivityResultCallback;
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import android.text.TextUtils;
@@ -96,7 +91,7 @@ public class PostFragment extends Fragment {
         DatabaseReference mCategoryDbRef;
 
         mCategoryDbRef = FirebaseDatabase.getInstance().getReference("Category");
-        mCategory = view.findViewById(R.id.spn_category);
+        mCategory = view.findViewById(R.id.spn_category_admin);
 
         ArrayList<String> Category = new ArrayList<>();
 
@@ -130,7 +125,7 @@ public class PostFragment extends Fragment {
             }
         });
 
-        mAddRow = view.findViewById(R.id.tv_addrow);
+        mAddRow = view.findViewById(R.id.tv_addrow_admin);
         mAddRow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -139,8 +134,11 @@ public class PostFragment extends Fragment {
 
                 TableRow row = new TableRow(getActivity().getApplication());
                 EditText ed_name = new EditText(getActivity().getApplication());
+                ed_name.setTextColor(Color.WHITE);
                 EditText ed_num = new EditText(getActivity().getApplication());
+                ed_num.setTextColor(Color.WHITE);
                 TextView tv_delete = new TextView(getActivity().getApplication());
+                tv_delete.setTextColor(Color.WHITE);
                 tv_delete.setText("Delete");
                 tv_delete.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -175,7 +173,7 @@ public class PostFragment extends Fragment {
             }
         });
 
-        mSend = view.findViewById(R.id.btn_send);
+        mSend = view.findViewById(R.id.btn_send_admin);
         mSend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -205,7 +203,7 @@ public class PostFragment extends Fragment {
                     Date currentTime;
                     SharedPreferences sharedPreferences;
 
-                    mNameOfDrink = view.findViewById(R.id.ed_nameofdrinks);
+                    mNameOfDrink = view.findViewById(R.id.ed_nameofdrinks_admin);
                     mMethod = view.findViewById(R.id.ed_method);
                     mGarnish = view.findViewById(R.id.ed_garnish);
                     currentTime = Calendar.getInstance().getTime();
@@ -221,6 +219,11 @@ public class PostFragment extends Fragment {
 
                     Posts post = new Posts(Garnish, Ingredients, Method, NameOfDrink, "Waiting for approval", CategorySelected, Username, WhenPost);
                     mPostDbRef.push().setValue(post);
+
+                    Toast.makeText(getContext(), "Tạo thành công", Toast.LENGTH_SHORT).show();
+
+                    AppCompatActivity activity=(AppCompatActivity)getContext();
+                    activity.getSupportFragmentManager().beginTransaction().replace(R.id.body_container,new HomePageFragment()).addToBackStack(null).commit();
                 }
             }
         });

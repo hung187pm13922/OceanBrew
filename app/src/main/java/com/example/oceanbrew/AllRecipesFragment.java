@@ -1,9 +1,8 @@
 package com.example.oceanbrew;
 
-import android.content.Context;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -11,19 +10,20 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
-import com.example.oceanbrew.adapter.WishlistAdapter;
-import com.example.oceanbrew.model.Wishlist;
+import com.example.oceanbrew.adapter.AllRecipesAdapter;
+import com.example.oceanbrew.adapter.DrinksOderByCateAdapter;
+import com.example.oceanbrew.model.Drinks;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
-import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link WishlistFragment#newInstance} factory method to
+ * Use the {@link AllRecipesFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class WishlistFragment extends Fragment {
+public class AllRecipesFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -33,10 +33,11 @@ public class WishlistFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-    WishlistAdapter mWishlistAdapter;
-    RecyclerView recyclerView;
 
-    public WishlistFragment() {
+    RecyclerView mRecyclerView;
+    AllRecipesAdapter mAllRecipesAdapter;
+
+    public AllRecipesFragment() {
         // Required empty public constructor
     }
 
@@ -46,11 +47,11 @@ public class WishlistFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment WishlistFragment.
+     * @return A new instance of fragment AllRecipesFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static WishlistFragment newInstance(String param1, String param2) {
-        WishlistFragment fragment = new WishlistFragment();
+    public static AllRecipesFragment newInstance(String param1, String param2) {
+        AllRecipesFragment fragment = new AllRecipesFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -71,22 +72,28 @@ public class WishlistFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_wishlist, container, false);
+        View view = inflater.inflate(R.layout.fragment_all_recipes, container, false);
 
-        SharedPreferences sharedPreferences;
-        sharedPreferences = view.getContext().getSharedPreferences("session_user", Context.MODE_PRIVATE);
-        String Username = sharedPreferences.getString("session_username", "");
+        mRecyclerView =  view.findViewById(R.id.rvc_allrecipes);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-        recyclerView = view.findViewById(R.id.rcv_Wishlist);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        FirebaseRecyclerOptions<Drinks> options =
+                new FirebaseRecyclerOptions.Builder<Drinks>()
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("Drinks"), Drinks.class)
+                        .build();
 
-        FirebaseRecyclerOptions<Wishlist> options = new FirebaseRecyclerOptions.Builder<Wishlist>()
-                .setQuery(FirebaseDatabase.getInstance().getReference("Wishlist").orderByChild("username").equalTo(Username), Wishlist.class)
-                .build();
+        mAllRecipesAdapter = new AllRecipesAdapter(options);
+        mRecyclerView.setAdapter(mAllRecipesAdapter);
 
-        mWishlistAdapter = new WishlistAdapter(options);
-        recyclerView.setAdapter(mWishlistAdapter);
-
+        ImageView imageView;
+        imageView = view.findViewById(R.id.btn_BackHome);
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AppCompatActivity activity=(AppCompatActivity)getContext();
+                activity.getSupportFragmentManager().beginTransaction().replace(R.id.body_container,new HomePageFragment()).addToBackStack(null).commit();
+            }
+        });
 
 
         return view;
@@ -95,12 +102,12 @@ public class WishlistFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        mWishlistAdapter.startListening();
+        mAllRecipesAdapter.startListening();
     }
 
     @Override
     public void onStop() {
         super.onStop();
-        mWishlistAdapter.stopListening();
+        mAllRecipesAdapter.stopListening();
     }
 }

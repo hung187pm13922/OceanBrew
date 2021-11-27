@@ -1,10 +1,11 @@
 package com.example.oceanbrew.adapter;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Filter;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.SearchView;
@@ -17,14 +18,18 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.oceanbrew.DrinksOderByCateFragment;
 import com.example.oceanbrew.R;
 import com.example.oceanbrew.model.Category;
+import com.example.oceanbrew.model.Wishlist;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
-
-import java.util.ArrayList;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 public class CategoryAdapter extends FirebaseRecyclerAdapter<Category,CategoryAdapter.myViewHolder>
 {
-
 
     public CategoryAdapter(@NonNull FirebaseRecyclerOptions<Category> options) {
         super(options);
@@ -64,6 +69,7 @@ public class CategoryAdapter extends FirebaseRecyclerAdapter<Category,CategoryAd
         ImageView mImageCategory;
         RelativeLayout mLayoutItemCate;
         SearchView mSearch;
+
         public myViewHolder(@NonNull View itemView) {
             super(itemView);
 

@@ -16,6 +16,8 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.SearchView;
 import android.widget.Spinner;
 import android.widget.TableLayout;
 import android.widget.TableRow;
@@ -23,6 +25,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.oceanbrew.model.Posts;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -90,8 +93,11 @@ public class PostFragment extends Fragment {
         Spinner mCategory;
         DatabaseReference mCategoryDbRef;
 
+
         mCategoryDbRef = FirebaseDatabase.getInstance().getReference("Category");
         mCategory = view.findViewById(R.id.spn_category_admin);
+
+        BottomNavigationView navigationView = getActivity().findViewById(R.id.header);
 
         ArrayList<String> Category = new ArrayList<>();
 
@@ -191,7 +197,7 @@ public class PostFragment extends Fragment {
                             Ingredients += txt+";";
                         } else {
                             countError += 1;
-                            tv.setError("ádas");
+                            tv.setError("Please fill all fields");
                         }
                     }
                 }

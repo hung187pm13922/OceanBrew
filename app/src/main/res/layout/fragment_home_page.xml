@@ -13,6 +13,18 @@
         android:layout_height="645dp">
 
 
+        <ImageView
+            android:id="@+id/imageView10"
+            android:layout_width="59dp"
+            android:layout_height="76dp"
+            android:src="@mipmap/logoho"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.045"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.040" />
+
         <Button
             android:id="@+id/btn_allrecipes"
             style="?android:attr/borderlessButtonStyle"

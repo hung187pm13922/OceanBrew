@@ -97,8 +97,6 @@ public class PostFragment extends Fragment {
         mCategoryDbRef = FirebaseDatabase.getInstance().getReference("Category");
         mCategory = view.findViewById(R.id.spn_category_admin);
 
-        BottomNavigationView navigationView = getActivity().findViewById(R.id.header);
-
         ArrayList<String> Category = new ArrayList<>();
 
         mCategoryDbRef.addListenerForSingleValueEvent(new ValueEventListener() {

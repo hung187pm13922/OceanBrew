@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@mipmap/body"
-    tools:context=".HomePageFragment">
+    tools:context=".ResultSearchFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -14,12 +14,12 @@
 
 
         <Button
-            android:id="@+id/btn_allrecipes"
+            android:id="@+id/btn_Back"
             style="?android:attr/borderlessButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/amaranth"
-            android:text="All recipes"
+            android:text="Back"
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -55,11 +55,10 @@
             app:layout_constraintVertical_bias="0.188" />
 
         <TextView
-            android:id="@+id/textView"
             android:layout_width="93dp"
             android:layout_height="58dp"
             android:fontFamily="@font/amaranth"
-            android:text="Filter"
+            android:text="Result"
             android:textAllCaps="false"
             android:textColor="#FFFFFF"
             android:textSize="34sp"
@@ -85,7 +84,7 @@
             tools:ignore="MissingConstraints" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rcv_category"
+            android:id="@+id/rcv_result"
             android:layout_width="409dp"
             android:layout_height="443dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -96,7 +95,7 @@
             app:layout_constraintVertical_bias="1.0" />
 
         <EditText
-            android:id="@+id/ed_search"
+            android:id="@+id/ed_searchInResult"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="84dp"
@@ -109,7 +108,7 @@
             tools:ignore="TouchTargetSizeCheck" />
 
         <ImageButton
-            android:id="@+id/btn_search"
+            android:id="@+id/btn_searchInResult"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="36dp"

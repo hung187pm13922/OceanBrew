@@ -2,22 +2,17 @@ package com.example.oceanbrew;
 
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.view.MenuItemCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.text.TextUtils;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.SearchView;
+import android.widget.EditText;
+import android.widget.ImageButton;
 
 import com.example.oceanbrew.adapter.CategoryAdapter;
 import com.example.oceanbrew.model.Category;
@@ -29,7 +24,7 @@ import com.google.firebase.database.FirebaseDatabase;
  * Use the {@link HomePageFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class HomePageFragment extends Fragment {
+public class HomePageFragment extends Fragment{
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -41,7 +36,8 @@ public class HomePageFragment extends Fragment {
     private String mParam2;
     RecyclerView mCategoryRcv;
     CategoryAdapter mCategoryAdapter;
-    SearchView mSearch;
+    EditText SearchString;
+    ImageButton Search;
 
     public HomePageFragment() {
         // Required empty public constructor
@@ -88,8 +84,21 @@ public class HomePageFragment extends Fragment {
                         .build();
 
         mCategoryAdapter = new CategoryAdapter(options);
-
         mCategoryRcv.setAdapter(mCategoryAdapter);
+
+        SearchString = view.findViewById(R.id.ed_search);
+        Search = view.findViewById(R.id.btn_search);
+        Search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String searchString = SearchString.getText().toString();
+                AppCompatActivity activity=(AppCompatActivity)v.getContext();
+                activity.getSupportFragmentManager()
+                        .beginTransaction().replace(R.id.body_container,
+                        new ResultSearchFragment(searchString))
+                        .addToBackStack(null).commit();
+            }
+        });
 
         Button button;
         button = view.findViewById(R.id.btn_allrecipes);

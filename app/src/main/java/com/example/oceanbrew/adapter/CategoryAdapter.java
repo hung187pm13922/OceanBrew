@@ -68,6 +68,7 @@ public class CategoryAdapter extends FirebaseRecyclerAdapter<Category,CategoryAd
         TextView mNameCategory;
         ImageView mImageCategory;
         RelativeLayout mLayoutItemCate;
+        SearchView mSearch;
 
         public myViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -75,6 +76,7 @@ public class CategoryAdapter extends FirebaseRecyclerAdapter<Category,CategoryAd
             mNameCategory = itemView.findViewById(R.id.tv_nameCategory);
             mImageCategory = itemView.findViewById(R.id.img_category);
             mLayoutItemCate = itemView.findViewById(R.id.layout_item_category);
+            mSearch = itemView.findViewById(R.id.sv_inHomePage);
         }
     }
 

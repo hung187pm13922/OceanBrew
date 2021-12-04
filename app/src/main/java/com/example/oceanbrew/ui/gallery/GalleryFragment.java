@@ -100,11 +100,11 @@ public class GalleryFragment extends Fragment {
 
                 TableRow row = new TableRow(getActivity().getApplication());
                 EditText ed_name = new EditText(getActivity().getApplication());
-                ed_name.setTextColor(Color.WHITE);
+                ed_name.setTextColor(Color.BLACK);
                 EditText ed_num = new EditText(getActivity().getApplication());
-                ed_num.setTextColor(Color.WHITE);
+                ed_num.setTextColor(Color.BLACK);
                 TextView tv_delete = new TextView(getActivity().getApplication());
-                tv_delete.setTextColor(Color.WHITE);
+                tv_delete.setTextColor(Color.BLACK);
                 tv_delete.setText("Delete");
                 tv_delete.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -127,9 +127,9 @@ public class GalleryFragment extends Fragment {
                 String txt2 = t2.getText().toString();
 
                 if (TextUtils.isEmpty(txt1)) {
-                    t1.setError("aaa");
+                    t1.setError("Please fill this field");
                 } else if (TextUtils.isEmpty(txt2)) {
-                    t2.setError("bbb");
+                    t2.setError("Please fill this field");
                 } else {
                     row.addView(ed_name);
                     row.addView(ed_num);
@@ -162,7 +162,7 @@ public class GalleryFragment extends Fragment {
                     }
                 }
                 if (countError > 0) {
-                    Toast.makeText(getActivity().getApplication(), "thieu du lieu", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity().getApplication(), "Please fill all fields", Toast.LENGTH_SHORT).show();
                 } else {
                     EditText mNameOfDrink, mMethod, mGarnish;
                     DatabaseReference mPostDbRef;
@@ -185,7 +185,7 @@ public class GalleryFragment extends Fragment {
                     Drinks drinks = new Drinks(CategorySelected, Garnish, Ingredients, Method, NameOfDrink, WhenPost);
                     mPostDbRef.push().setValue(drinks);
 
-                    Toast.makeText(getContext(), "Tạo thành công", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "Add Recipes Success", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(getContext(), Admin.class));
                 }
             }

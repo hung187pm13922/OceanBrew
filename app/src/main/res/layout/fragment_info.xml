@@ -13,111 +13,137 @@
         android:layout_height="match_parent"
         android:layout_marginBottom="86dp">
 
-        <ImageView
-            android:id="@+id/imageView4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/gach"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.145" />
 
         <ImageView
             android:id="@+id/imageView10"
-            android:layout_width="59dp"
-            android:layout_height="76dp"
+            android:layout_width="120dp"
+            android:layout_height="159dp"
             android:src="@mipmap/logoho"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.044"
+            app:layout_constraintHorizontal_bias="0.054"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.027" />
-
-        <EditText
-            android:id="@+id/ed_search"
-            android:layout_width="301dp"
-            android:layout_height="45dp"
-            android:layout_marginStart="92dp"
-            android:layout_marginTop="32dp"
-            android:background="@drawable/round"
-            android:ems="10"
-            android:hint="     What do you feel like making today ?"
-            android:inputType="textPersonName"
-            android:textSize="15sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="TouchTargetSizeCheck" />
-
-
-        <ImageButton
-            android:id="@+id/btn_search"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:layout_marginEnd="24dp"
-            android:backgroundTint="#00FFFFFF"
-            android:src="@drawable/ic_search"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
-
-
-        <ImageView
-            android:id="@+id/btn_BackHome"
-            android:layout_width="62dp"
-            android:layout_height="75dp"
-
-            android:src="@mipmap/btnback"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.994"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.159" />
+            app:layout_constraintVertical_bias="0.026" />
 
         <TextView
             android:id="@+id/textView"
-            android:layout_width="330dp"
-            android:layout_height="68dp"
+            android:layout_width="169dp"
+            android:layout_height="50dp"
             android:fontFamily="@font/amaranth"
-            android:text="Welcome"
+            android:text="Username:"
+            android:textAlignment="center"
             android:textAllCaps="false"
-            android:textColor="#FFFFFF"
+            android:textColor="@color/white"
             android:textSize="34sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.111"
+            app:layout_constraintHorizontal_bias="0.066"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.177"
+            app:layout_constraintVertical_bias="0.36"
             tools:ignore="MissingConstraints" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="573dp"
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="348dp"
+            android:layout_height="48dp"
+            android:fontFamily="@font/amaranth"
+            android:text="Number of shared Recipes"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="30sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.492"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintVertical_bias="0.539"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="91dp"
+            android:layout_height="48dp"
+            android:fontFamily="@font/amaranth"
+            android:text="69"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.462"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.641"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="169dp"
+            android:layout_height="50dp"
+            android:fontFamily="@font/amaranth"
+            android:text="hùng lồn"
+            android:textAlignment="textStart"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="34sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.756"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.359"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="169dp"
+            android:layout_height="50dp"
+            android:fontFamily="@font/amaranth"
+            android:text="Welcome to"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="@color/active"
+            android:textSize="34sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.756"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.022"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="254dp"
+            android:layout_height="57dp"
+            android:fontFamily="@font/amaranth"
+            android:text="Ocean Brew"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="@color/active"
+            android:textSize="50sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.898"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.093"
+            tools:ignore="MissingConstraints" />
 
         <Button
             android:id="@+id/btn_logout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="708dp"
             android:text="Log Out"
-            app:layout_constraintBottom_toBottomOf="@+id/recyclerView"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintTop_toTopOf="parent" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

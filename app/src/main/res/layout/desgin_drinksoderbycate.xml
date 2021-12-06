@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="120dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.cardview.widget.CardView
-        android:layout_width="410dp"
-        android:layout_height="110dp"
+        android:layout_width="406dp"
+        android:layout_height="139dp"
         app:cardBackgroundColor="@color/nocolor"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -18,18 +19,18 @@
         <RelativeLayout
             android:id="@+id/layout_drinksoderbyCate"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="130dp"
+            android:background="@color/nocolor"
             android:paddingTop="5dp"
-            android:paddingBottom="5dp"
-            android:background="@color/nocolor">
+            android:paddingBottom="5dp">
 
             <ImageView
                 android:id="@+id/imageDrinks_Cate"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
                 android:layout_alignParentLeft="true"
                 android:layout_centerHorizontal="true"
-                android:layout_marginLeft="39dp"
+                android:layout_marginLeft="9dp"
                 android:src="@mipmap/ic_launcher" />
 
             <TextView

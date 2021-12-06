@@ -6,10 +6,15 @@
     android:layout_height="match_parent"
     android:background="@mipmap/body"
     tools:context=".DrinksDetailFragment">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="86dp">
 
     <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginBottom="86dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -23,135 +28,137 @@
                 android:layout_marginTop="90dp"
                 app:srcCompat="@mipmap/ic_launcher_round" />
 
-            <ImageView
-                android:id="@+id/btn_BackHome"
-                android:layout_width="62dp"
-                android:layout_height="75dp"
-                android:layout_alignParentRight="true"
-                android:src="@mipmap/btnback" />
+        <ImageView
+            android:id="@+id/btn_BackHome"
+            android:layout_width="62dp"
+            android:layout_height="75dp"
+            android:layout_alignParentRight="true"
+            android:src="@mipmap/btnback" />
 
-            <TextView
-                android:id="@+id/tv_NameDrinks"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="50dp"
-                android:fontFamily="@font/amaranth"
-                android:text="Name of Drinks"
-                android:textColor="#FFFFFF"
-                android:textSize="30sp" />
+        <TextView
+            android:id="@+id/tv_NameDrinks"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="50dp"
+            android:fontFamily="@font/amaranth"
+            android:text="Name of Drinks"
+            android:textColor="#FFFFFF"
+            android:textSize="30sp" />
 
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="280dp"
-                android:fontFamily="@font/amaranth"
-                android:text="Ingredients"
-                android:textColor="#FFFFFF"
-                android:textSize="30sp" />
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="280dp"
+            android:fontFamily="@font/amaranth"
+            android:text="Ingredients"
+            android:textColor="#FFFFFF"
+            android:textSize="30sp" />
 
-            <TextView
-                android:id="@+id/textVie"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginLeft="20dp"
-                android:layout_marginBottom="250dp"
-                android:fontFamily="@font/amaranth"
-                android:text="Garnish"
-                android:textColor="#FFFFFF"
-                android:textSize="30sp" />
+        <TextView
+            android:id="@+id/textVie"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="450dp"
+            android:fontFamily="@font/amaranth"
+            android:text="Garnish"
+            android:textColor="#FFFFFF"
+            android:textSize="30sp" />
 
-            <TextView
-                android:id="@+id/textVi"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginLeft="20dp"
-                android:layout_marginBottom="125dp"
-                android:fontFamily="@font/amaranth"
-                android:text="Method"
-                android:textColor="#FFFFFF"
-                android:textSize="30sp" />
+        <TextView
+            android:id="@+id/textVi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="560dp"
+            android:fontFamily="@font/amaranth"
+            android:text="Method"
+            android:textColor="#FFFFFF"
+            android:textSize="30sp" />
 
-            <TextView
-                android:id="@+id/textV"
-                android:layout_width="376dp"
-                android:layout_height="81dp"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginLeft="20dp"
-                android:layout_marginBottom="28dp"
-                android:fontFamily="@font/amaranth"
-                android:text="Method"
-                android:textColor="#5EFFFFFF"
-                android:textSize="20sp" />
+        <TextView
+            android:id="@+id/textV"
+            android:layout_width="376dp"
+            android:layout_height="81dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="600dp"
+            android:ems="10"
+            android:fontFamily="@font/amaranth"
+            android:gravity="start|top"
+            android:inputType="textMultiLine"
+            android:text="Method"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp" />
 
-            <TextView
-                android:id="@+id/textVj"
-                android:layout_width="395dp"
-                android:layout_height="68dp"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginLeft="20dp"
-                android:layout_marginBottom="171dp"
-                android:fontFamily="@font/amaranth"
-                android:text="Method"
-                android:textColor="#5EFFFFFF"
-                android:textSize="20sp" />
+        <TextView
+            android:id="@+id/textVj"
+            android:layout_width="395dp"
+            android:layout_height="68dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="20dp"
+            android:ems="10"
+            android:gravity="start|top"
+            android:inputType="textMultiLine"
+            android:layout_marginTop="490dp"
+            android:fontFamily="@font/amaranth"
+            android:text="Method"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
 
-            <TableLayout
-                android:id="@+id/tblo_I"
+        <TableLayout
+            android:id="@+id/tblo_I"
+            android:layout_width="380dp"
+            android:layout_height="129dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="320dp"
+            android:isScrollContainer="true"
+            android:stretchColumns="*"
+            android:verticalScrollbarPosition="defaultPosition"
+            app:layout_constraintVertical_bias="0.205">
+
+            <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="129dp"
-                android:layout_alignParentBottom="true"
-                android:layout_marginLeft="15dp"
-                android:layout_marginBottom="290dp"
-                android:isScrollContainer="true"
-                android:stretchColumns="*"
-                android:verticalScrollbarPosition="defaultPosition"
-                app:layout_constraintVertical_bias="0.205">
+                android:layout_height="match_parent">
 
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                <TextView
+                    android:layout_width="88dp"
+                    android:text="Name of ingredient"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    tools:ignore="TouchTargetSizeCheck" />
 
-                    <TextView
-                        android:layout_width="88dp"
-                        android:text="Name of ingredient"
-                        android:textColor="@color/white"
-                        android:textStyle="bold"
-                        tools:ignore="TouchTargetSizeCheck" />
-
-                    <TextView
-                        android:layout_width="59dp"
-                        android:text="Quantification"
-                        android:textColor="@color/white"
-                        android:textStyle="bold"
-                        tools:ignore="TouchTargetSizeCheck" />
-                </TableRow>
+                <TextView
+                    android:layout_width="59dp"
+                    android:text="Quantification"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    tools:ignore="TouchTargetSizeCheck" />
+            </TableRow>
 
 
-            </TableLayout>
+        </TableLayout>
 
         <CheckBox
             android:id="@+id/checkbox_addwl"
             android:layout_width="130dp"
             android:layout_height="33dp"
-            android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_alignParentRight="true"
-            android:layout_alignParentBottom="true"
             android:layout_marginStart="281dp"
             android:layout_marginTop="271dp"
-            android:layout_marginRight="0dp"
             android:layout_marginBottom="426dp"
             android:button="@drawable/wish_onclick"
             android:text="Add to wishlist"
@@ -159,4 +166,6 @@
             android:textSize="12dp" />
 
     </RelativeLayout>
+    </ScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

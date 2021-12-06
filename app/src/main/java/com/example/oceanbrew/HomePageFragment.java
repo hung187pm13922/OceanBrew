@@ -128,5 +128,4 @@ public class HomePageFragment extends Fragment{
         super.onStop();
         mCategoryAdapter.stopListening();
     }
-
 }

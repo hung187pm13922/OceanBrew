@@ -107,10 +107,10 @@ public class DrinksDetailWishlistFragment extends Fragment {
             TableRow row = new TableRow(getActivity().getApplication());
             TextView tv1 = new TextView(getActivity().getApplication());
             tv1.setText(arr[i+1]);
-            tv1.setTextColor(Color.BLACK);
+            tv1.setTextColor(Color.WHITE);
             TextView tv2 = new TextView(getActivity().getApplication());
             tv2.setText(arr[i+2]);
-            tv2.setTextColor(Color.BLACK);
+            tv2.setTextColor(Color.WHITE);
             row.addView(tv1);
             row.addView(tv2);
             tableLayout.addView(row);

@@ -2,12 +2,12 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="150dp"
+    android:layout_height="270dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="270dp"
         app:cardBackgroundColor="@color/nocolor"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -19,35 +19,43 @@
         <RelativeLayout
             android:id="@+id/layout_item_category"
             android:layout_width="match_parent"
-            android:layout_height="200dp">
+            android:layout_height="300dp">
 
             <ImageView
                 android:id="@+id/img_category"
-                android:layout_width="150dp"
-                android:layout_height="165dp"
+                android:layout_width="255dp"
+                android:layout_height="212dp"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="4dp"
-                android:layout_marginBottom="52dp"
+                android:layout_marginLeft="78dp"
+                android:layout_marginTop="18dp"
+                android:layout_marginBottom="70dp"
                 android:src="@mipmap/ic_launcher" />
 
             <TextView
                 android:id="@+id/tv_nameCategory"
-                android:layout_width="229dp"
-                android:layout_height="41dp"
+                style="@style/TextShadowStyle"
+                android:layout_width="match_parent"
+                android:layout_height="34dp"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentBottom="true"
-                android:layout_marginLeft="167dp"
-                android:layout_marginTop="56dp"
-                android:layout_marginBottom="103dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="230dp"
+                android:layout_marginBottom="36dp"
                 android:fontFamily="sans-serif-medium"
+                android:hapticFeedbackEnabled="false"
+                android:shadowColor="@color/text_shadow_white"
+                android:shadowDx="-2"
+                android:shadowDy="-2"
+                android:shadowRadius="1"
                 android:text="Type of drinks"
-                android:textColor="#FFFFFF"
-                android:textSize="25sp" />
+                android:textAlignment="center"
+                android:textColor="#88FFFFFF"
+                android:textSize="25sp"
+                android:textStyle="bold" />
 
         </RelativeLayout>
     </androidx.cardview.widget.CardView>

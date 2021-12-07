@@ -24,4 +24,5 @@
     <string name="menu_slideshow">Slideshow</string>
     <string name="title_activity_admin">Admin</string>
     <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_admin_holder">AdminHolder</string>
 </resources>

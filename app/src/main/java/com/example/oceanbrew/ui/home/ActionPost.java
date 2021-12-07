@@ -1,4 +1,4 @@
-package com.example.oceanbrew;
+package com.example.oceanbrew.ui.home;
 
 import android.os.Bundle;
 
@@ -8,12 +8,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.oceanbrew.R;
+
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link ActionPostFragment#newInstance} factory method to
+ * Use the {@link ActionPost#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ActionPostFragment extends Fragment {
+public class ActionPost extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -24,7 +26,7 @@ public class ActionPostFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public ActionPostFragment() {
+    public ActionPost() {
         // Required empty public constructor
     }
 
@@ -34,11 +36,11 @@ public class ActionPostFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment ActionPostFragment.
+     * @return A new instance of fragment ActionPost.
      */
     // TODO: Rename and change types and number of parameters
-    public static ActionPostFragment newInstance(String param1, String param2) {
-        ActionPostFragment fragment = new ActionPostFragment();
+    public static ActionPost newInstance(String param1, String param2) {
+        ActionPost fragment = new ActionPost();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);

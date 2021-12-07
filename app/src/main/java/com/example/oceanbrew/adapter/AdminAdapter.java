@@ -1,5 +1,6 @@
 package com.example.oceanbrew.adapter;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,7 +10,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -42,11 +42,7 @@ public class AdminAdapter extends FirebaseRecyclerAdapter<Posts, AdminAdapter.my
         holder.item.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AppCompatActivity activity=(AppCompatActivity)v.getContext();
-                activity.getSupportFragmentManager()
-                        .beginTransaction().replace(R.id.drawer_layout,
-                        new ActionPostFragment())
-                        .addToBackStack(null).commit();
+
             }
         });
 

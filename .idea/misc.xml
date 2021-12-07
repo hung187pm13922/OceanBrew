@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/StudioProject/OceanBrew/app/src/main/res/layout/activity_admin.xml" value="0.24139492753623187" />
+        <entry key="..\:/StudioProject/OceanBrew/app/src/main/res/layout/activity_admin_holder.xml" value="0.12708333333333333" />
         <entry key="..\:/StudioProject/OceanBrew/app/src/main/res/layout/activity_all_recipes.xml" value="0.13020833333333334" />
         <entry key="..\:/StudioProject/OceanBrew/app/src/main/res/layout/activity_emty.xml" value="0.13020833333333334" />
         <entry key="..\:/StudioProject/OceanBrew/app/src/main/res/layout/activity_menuu.xml" value="0.1802536231884058" />
@@ -16,9 +17,11 @@
         <entry key="..\:/StudioProject/OceanBrew/app/src/main/res/layout/design_homepage.xml" value="0.23505434782608695" />
         <entry key="..\:/StudioProject/OceanBrew/app/src/main/res/layout/design_recipes_orderby_cate.xml" value="0.1793478260869565" />
         <entry key="..\:/StudioProject/OceanBrew/app/src/main/res/layout/design_wishlist.xml" value="0.23505434782608695" />
+        <entry key="..\:/StudioProject/OceanBrew/app/src/main/res/layout/fragment_action_post.xml" value="0.25" />
         <entry key="..\:/StudioProject/OceanBrew/app/src/main/res/layout/fragment_admin.xml" value="0.25407608695652173" />
         <entry key="..\:/StudioProject/OceanBrew/app/src/main/res/layout/fragment_all_recipes.xml" value="0.25416666666666665" />
         <entry key="..\:/StudioProject/OceanBrew/app/src/main/res/layout/fragment_drinks_detail.xml" value="0.1793478260869565" />
+        <entry key="..\:/StudioProject/OceanBrew/app/src/main/res/layout/fragment_drinks_detail_search.xml" value="0.25" />
         <entry key="..\:/StudioProject/OceanBrew/app/src/main/res/layout/fragment_drinks_detail_wishlist.xml" value="0.25416666666666665" />
         <entry key="..\:/StudioProject/OceanBrew/app/src/main/res/layout/fragment_drinks_oder_by_cate.xml" value="0.1793478260869565" />
         <entry key="..\:/StudioProject/OceanBrew/app/src/main/res/layout/fragment_gallery.xml" value="0.24139492753623187" />
@@ -29,7 +32,7 @@
         <entry key="..\:/StudioProject/OceanBrew/app/src/main/res/layout/fragment_post.xml" value="0.24139492753623187" />
         <entry key="..\:/StudioProject/OceanBrew/app/src/main/res/layout/fragment_result_search.xml" value="0.2" />
         <entry key="..\:/StudioProject/OceanBrew/app/src/main/res/layout/fragment_slideshow.xml" value="0.24139492753623187" />
-        <entry key="..\:/StudioProject/OceanBrew/app/src/main/res/layout/fragment_wishlist.xml" value="0.13020833333333334" />
+        <entry key="..\:/StudioProject/OceanBrew/app/src/main/res/layout/fragment_wishlist.xml" value="0.2" />
         <entry key="..\:/StudioProject/OceanBrew/app/src/main/res/layout/nav_header_admin.xml" value="0.24139492753623187" />
         <entry key="..\:/StudioProject/app/src/main/res/layout/activity_admin.xml" value="0.25" />
         <entry key="..\:/StudioProject/app/src/main/res/layout/activity_admin_add_recipes.xml" value="0.25" />
@@ -53,7 +56,6 @@
         <entry key="..\:/Users/84334/AndroidStudioProjects/OceanBrew/app/src/main/res/drawable/round.xml" value="0.26615384615384613" />
         <entry key="..\:/Users/84334/AndroidStudioProjects/OceanBrew/app/src/main/res/drawable/text_shadow.xml" value="0.17533783783783785" />
         <entry key="..\:/Users/84334/AndroidStudioProjects/OceanBrew/app/src/main/res/layout/activity_admin.xml" value="0.12360688956433637" />
-        <entry key="..\:/Users/84334/AndroidStudioProjects/OceanBrew/app/src/main/res/layout/activity_admin_holder.xml" value="0.245018115942029" />
         <entry key="..\:/Users/84334/AndroidStudioProjects/OceanBrew/app/src/main/res/layout/activity_menuu.xml" value="0.12360688956433637" />
         <entry key="..\:/Users/84334/AndroidStudioProjects/OceanBrew/app/src/main/res/layout/app_bar_admin.xml" value="0.1051912568306011" />
         <entry key="..\:/Users/84334/AndroidStudioProjects/OceanBrew/app/src/main/res/layout/content_admin.xml" value="0.1051912568306011" />
@@ -61,7 +63,6 @@
         <entry key="..\:/Users/84334/AndroidStudioProjects/OceanBrew/app/src/main/res/layout/design_admin_approve.xml" value="0.1051912568306011" />
         <entry key="..\:/Users/84334/AndroidStudioProjects/OceanBrew/app/src/main/res/layout/design_homepage.xml" value="0.19444444444444445" />
         <entry key="..\:/Users/84334/AndroidStudioProjects/OceanBrew/app/src/main/res/layout/design_info.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/84334/AndroidStudioProjects/OceanBrew/app/src/main/res/layout/fragment_action_post.xml" value="0.25407608695652173" />
         <entry key="..\:/Users/84334/AndroidStudioProjects/OceanBrew/app/src/main/res/layout/fragment_all_recipes.xml" value="0.1431159420289855" />
         <entry key="..\:/Users/84334/AndroidStudioProjects/OceanBrew/app/src/main/res/layout/fragment_drinks_detail.xml" value="0.176" />
         <entry key="..\:/Users/84334/AndroidStudioProjects/OceanBrew/app/src/main/res/layout/fragment_drinks_detail_wishlist.xml" value="0.176" />

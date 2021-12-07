@@ -8,17 +8,19 @@ public class Drinks {
     String methol;
     String nameDrinks;
     String whenPost;
+    String link;
 
     public Drinks() {
     }
 
-    public Drinks(String category, String garnish, String ingradients, String methol, String nameDrinks, String whenPost) {
+    public Drinks(String category, String garnish, String ingradients, String methol, String nameDrinks, String whenPost, String link) {
         this.category = category;
         this.garnish = garnish;
         this.ingradients = ingradients;
         this.methol = methol;
         this.nameDrinks = nameDrinks;
         this.whenPost = whenPost;
+        this.link = link;
     }
 
     public String getCategory() {
@@ -67,5 +69,13 @@ public class Drinks {
 
     public void setWhenPost(String whenPost) {
         this.whenPost = whenPost;
+    }
+
+    public String getLink() {
+        return link;
+    }
+
+    public void setLink(String link) {
+        this.link = link;
     }
 }

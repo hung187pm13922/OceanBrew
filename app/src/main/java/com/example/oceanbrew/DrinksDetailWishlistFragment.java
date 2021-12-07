@@ -3,6 +3,7 @@ package com.example.oceanbrew;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -18,13 +19,17 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.oceanbrew.model.Wishlist;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -46,17 +51,19 @@ public class DrinksDetailWishlistFragment extends Fragment {
     String Methol;
     String Ingradients;
     String Category;
+    String link;
 
     public DrinksDetailWishlistFragment() {
 
     }
 
-    public DrinksDetailWishlistFragment(String drinksOfName, String garnish, String methol, String ingradients, String category) {
+    public DrinksDetailWishlistFragment(String drinksOfName, String garnish, String methol, String ingradients, String category, String link) {
         DrinksOfName = drinksOfName;
         Garnish = garnish;
         Methol = methol;
         Ingradients = ingradients;
         Category = category;
+        this.link = link;
     }
 
     /**
@@ -92,6 +99,7 @@ public class DrinksDetailWishlistFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_drinks_detail_wishlist, container, false);
 
+        ImageView imageView;
         TextView mNameDrinks, mGarnish, mMethol;
         mNameDrinks = view.findViewById(R.id.tv_NameDrinks);
         mGarnish = view.findViewById(R.id.textVj);
@@ -99,6 +107,14 @@ public class DrinksDetailWishlistFragment extends Fragment {
         mNameDrinks.setText(DrinksOfName);
         mGarnish.setText(Garnish);
         mMethol.setText(Methol);
+        imageView = view.findViewById(R.id.iv_imageDrinks);
+        StorageReference reference = FirebaseStorage.getInstance().getReference("images").child(link);
+        reference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+            @Override
+            public void onSuccess(Uri uri) {
+                Glide.with(getActivity().getApplication()).load(uri).into(imageView);
+            }
+        });
 
         TableLayout tableLayout = (TableLayout) view.findViewById(R.id.tblo_I);
         String []arr = Ingradients.split(";");
@@ -161,7 +177,7 @@ public class DrinksDetailWishlistFragment extends Fragment {
             public void onClick(View v) {
                 DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Wishlist");
                 if (mAddWishlish.isChecked()) {
-                    Wishlist wishlist = new Wishlist(Category, DrinksOfName, Username);
+                    Wishlist wishlist = new Wishlist(Category, link, DrinksOfName, Username);
                     databaseReference.push().setValue(wishlist);
                 } else {
                     Query query = databaseReference.orderByChild("username").equalTo(Username);

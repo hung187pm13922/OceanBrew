@@ -9,11 +9,12 @@ public class Posts {
     String typeOfDrinks;
     String username;
     String whenPost;
+    String link;
 
     public Posts() {
     }
 
-    public Posts(String garnish, String ingredients, String method, String nameOfDrink, String status, String typeOfDrinks, String username, String whenPost) {
+    public Posts(String garnish, String ingredients, String method, String nameOfDrink, String status, String typeOfDrinks, String username, String whenPost, String link) {
         this.garnish = garnish;
         this.ingredients = ingredients;
         this.method = method;
@@ -22,6 +23,7 @@ public class Posts {
         this.typeOfDrinks = typeOfDrinks;
         this.username = username;
         this.whenPost = whenPost;
+        this.link = link;
     }
 
     public String getGarnish() {
@@ -86,5 +88,13 @@ public class Posts {
 
     public void setWhenPost(String whenPost) {
         this.whenPost = whenPost;
+    }
+
+    public String getLink() {
+        return link;
+    }
+
+    public void setLink(String link) {
+        this.link = link;
     }
 }

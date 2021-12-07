@@ -287,7 +287,7 @@
                 app:layout_constraintVertical_bias="0.225" />
 
             <ImageView
-                android:id="@+id/imageView2"
+                android:id="@+id/iv_imageDrinks"
                 android:layout_width="93dp"
                 android:layout_height="83dp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -299,7 +299,7 @@
                 tools:src="@tools:sample/avatars" />
 
             <Button
-                android:id="@+id/button"
+                android:id="@+id/button_chosseImage"
                 android:layout_width="133dp"
                 android:layout_height="42dp"
                 android:text="Choose file"

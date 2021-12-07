@@ -4,13 +4,23 @@ public class Wishlist {
     String category;
     String username;
     String nameofDrinks;
+    String link;
 
     public Wishlist() {
     }
 
-    public Wishlist(String category,String nameofDrinks, String username) {
-        this.nameofDrinks = nameofDrinks;
+    public Wishlist(String category, String link, String nameofDrinks, String username) {
+        this.category = category;
         this.username = username;
+        this.nameofDrinks = nameofDrinks;
+        this.link = link;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
         this.category = category;
     }
 
@@ -30,11 +40,11 @@ public class Wishlist {
         this.nameofDrinks = nameofDrinks;
     }
 
-    public String getCategory() {
-        return category;
+    public String getLink() {
+        return link;
     }
 
-    public void setCategory(String category) {
-        this.category = category;
+    public void setLink(String link) {
+        this.link = link;
     }
 }

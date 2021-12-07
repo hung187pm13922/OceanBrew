@@ -1,5 +1,6 @@
 package com.example.oceanbrew.adapter;
 
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.oceanbrew.DrinksDetailFragment;
 import com.example.oceanbrew.DrinksDetailWishlistFragment;
 import com.example.oceanbrew.R;
@@ -18,12 +20,15 @@ import com.example.oceanbrew.model.Drinks;
 import com.example.oceanbrew.model.Wishlist;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,6 +43,13 @@ public class WishlistAdapter extends FirebaseRecyclerAdapter<Wishlist, WishlistA
     protected void onBindViewHolder(@NonNull myViewHolder holder, int position, @NonNull Wishlist model) {
         holder.mNameDrinks.setText(model.getNameofDrinks());
         holder.mCateOfDrinks.setText("Type of Drinks: "+model.getCategory());
+        StorageReference reference = FirebaseStorage.getInstance().getReference("images").child(model.getLink());
+        reference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+            @Override
+            public void onSuccess(Uri uri) {
+                Glide.with(holder.itemView.getContext()).load(uri).into(holder.mImageDrinks);
+            }
+        });
         List<Drinks> drinks = new ArrayList<>();
         holder.mRelativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,7 +65,7 @@ public class WishlistAdapter extends FirebaseRecyclerAdapter<Wishlist, WishlistA
                         AppCompatActivity activity=(AppCompatActivity)v.getContext();
                         activity.getSupportFragmentManager()
                                 .beginTransaction().replace(R.id.body_container,
-                                new DrinksDetailWishlistFragment(drinks.get(0).getNameDrinks(), drinks.get(0).getGarnish(), drinks.get(0).getMethol(), drinks.get(0).getIngradients(), drinks.get(0).getCategory()))
+                                new DrinksDetailWishlistFragment(drinks.get(0).getNameDrinks(), drinks.get(0).getGarnish(), drinks.get(0).getMethol(), drinks.get(0).getIngradients(), drinks.get(0).getCategory(), drinks.get(0).getLink()))
                                 .addToBackStack(null).commit();
                     }
 

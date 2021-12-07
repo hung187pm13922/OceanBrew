@@ -1,14 +1,20 @@
 package com.example.oceanbrew;
 
+import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import android.provider.MediaStore;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,17 +30,27 @@ import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.example.oceanbrew.model.Posts;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.OnProgressListener;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.UUID;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -51,6 +67,10 @@ public class PostFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private  Button btnChoose;
+    private ImageView imageView;
+    private Uri uri;
+    private final int PICK_IMAGE_REQUEST = 71;
 
     public PostFragment() {
         // Required empty public constructor
@@ -219,19 +239,91 @@ public class PostFragment extends Fragment {
                     String WhenPost = currentTime.toString();
                     sharedPreferences = getContext().getSharedPreferences("session_user", Context.MODE_PRIVATE);
                     String Username = sharedPreferences.getString("session_username", "");
-                    ///CheckError mốt làm ở đây nha
 
-                    Posts post = new Posts(Garnish, Ingredients, Method, NameOfDrink, "Waiting for approval", CategorySelected, Username, WhenPost);
-                    mPostDbRef.push().setValue(post);
+                    String nameImage;
+                    nameImage = WhenPost.replaceAll(" ", "");
 
-                    Toast.makeText(getContext(), "Tạo thành công", Toast.LENGTH_SHORT).show();
-
-                    AppCompatActivity activity=(AppCompatActivity)getContext();
-                    activity.getSupportFragmentManager().beginTransaction().replace(R.id.body_container,new HomePageFragment()).addToBackStack(null).commit();
+                    if (uploadImage(nameImage) == true) {
+                        Posts post = new Posts(Garnish, Ingredients, Method, NameOfDrink, "Waiting for approval", CategorySelected, Username, WhenPost, nameImage);
+                        mPostDbRef.push().setValue(post);
+                        AppCompatActivity activity=(AppCompatActivity)getContext();
+                        activity.getSupportFragmentManager().beginTransaction().replace(R.id.body_container,new HomePageFragment()).addToBackStack(null).commit();
+                    } else {
+                        Toast.makeText(getActivity().getApplication(), "chưa input hình", Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
         });
 
+        imageView = view.findViewById(R.id.iv_imageDrinks);
+        btnChoose = view.findViewById(R.id.button_chosseImage);
+        btnChoose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                chooseImage();
+            }
+        });
+
         return view;
+    }
+
+    public void chooseImage() {
+        Intent intent = new Intent();
+        intent.setType("image/*");
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_IMAGE_REQUEST);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == PICK_IMAGE_REQUEST && data != null && data.getData() != null )
+        {
+            uri = data.getData();
+            try {
+                Bitmap bitmap = MediaStore.Images.Media.getBitmap(getActivity().getContentResolver(), uri);
+                imageView.setImageBitmap(bitmap);
+            }
+            catch (IOException e)
+            {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public boolean uploadImage(String name) {
+        if(uri != null)
+        {
+            final ProgressDialog progressDialog = new ProgressDialog(getActivity());
+            progressDialog.setTitle("Uploading...");
+            progressDialog.show();
+
+            StorageReference ref = FirebaseStorage.getInstance().getReference().child("images/" + name);
+            ref.putFile(uri)
+                    .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                            progressDialog.dismiss();
+                            Toast.makeText(getActivity().getApplication(), "Uploaded", Toast.LENGTH_SHORT).show();
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            progressDialog.dismiss();
+                            Toast.makeText(getActivity().getApplication(), "Failed "+e.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    })
+                    .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
+                            double progress = (100.0*taskSnapshot.getBytesTransferred()/taskSnapshot
+                                    .getTotalByteCount());
+                            progressDialog.setMessage("Uploaded "+(int)progress+"%");
+                        }
+                    });
+            return true;
+        }
+        return false;
     }
 }

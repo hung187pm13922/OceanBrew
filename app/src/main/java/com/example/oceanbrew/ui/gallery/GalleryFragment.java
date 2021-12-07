@@ -1,10 +1,14 @@
 package com.example.oceanbrew.ui.gallery;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +16,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TableLayout;
 import android.widget.TableRow;
@@ -29,12 +34,19 @@ import com.example.oceanbrew.databinding.FragmentGalleryBinding;
 import com.example.oceanbrew.model.Drinks;
 import com.example.oceanbrew.model.Posts;
 import com.example.oceanbrew.ui.home.HomeFragment;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.OnProgressListener;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -42,6 +54,10 @@ import java.util.Date;
 public class GalleryFragment extends Fragment {
 
     private FragmentGalleryBinding binding;
+    private  Button btnChoose;
+    private TextView textView;
+    private Uri uri;
+    private final int PICK_IMAGE_REQUEST = 71;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -182,12 +198,27 @@ public class GalleryFragment extends Fragment {
                     sharedPreferences = getContext().getSharedPreferences("session_admin", Context.MODE_PRIVATE);
                     String Username = sharedPreferences.getString("session_admin_username", "");
 
-                    Drinks drinks = new Drinks(CategorySelected, Garnish, Ingredients, Method, NameOfDrink, WhenPost);
-                    mPostDbRef.push().setValue(drinks);
+                    String nameImage;
+                    nameImage = WhenPost.replaceAll(" ", "");
 
-                    Toast.makeText(getContext(), "Add Recipes Success", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(getContext(), Admin.class));
+                    if (uploadImage(nameImage) == true) {
+                        Drinks drinks = new Drinks(CategorySelected, Garnish, Ingredients, Method, NameOfDrink, WhenPost, nameImage);
+                        mPostDbRef.push().setValue(drinks);
+                        Toast.makeText(getContext(), "Add Recipes Success", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(getContext(), Admin.class));
+                    } else {
+                        Toast.makeText(getContext(), "thaibai", Toast.LENGTH_SHORT).show();
+                    }
                 }
+            }
+        });
+
+        textView = root.findViewById(R.id.tv_nameImageAdmin);
+        btnChoose = root.findViewById(R.id.btn_chooseImageAdmin);
+        btnChoose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                chooseImage();
             }
         });
 
@@ -198,5 +229,58 @@ public class GalleryFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
+    }
+
+    public void chooseImage() {
+        Intent intent = new Intent();
+        intent.setType("image/*");
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_IMAGE_REQUEST);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == PICK_IMAGE_REQUEST && data != null && data.getData() != null )
+        {
+            uri = data.getData();
+            textView.setText("Choosen Image");
+        }
+    }
+
+    public boolean uploadImage(String name) {
+        if(uri != null)
+        {
+            final ProgressDialog progressDialog = new ProgressDialog(getActivity());
+            progressDialog.setTitle("Uploading...");
+            progressDialog.show();
+
+            StorageReference ref = FirebaseStorage.getInstance().getReference().child("images/" + name);
+            ref.putFile(uri)
+                    .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                            progressDialog.dismiss();
+                            Toast.makeText(getActivity().getApplication(), "Uploaded", Toast.LENGTH_SHORT).show();
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            progressDialog.dismiss();
+                            Toast.makeText(getActivity().getApplication(), "Failed "+e.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    })
+                    .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
+                            double progress = (100.0*taskSnapshot.getBytesTransferred()/taskSnapshot
+                                    .getTotalByteCount());
+                            progressDialog.setMessage("Uploaded "+(int)progress+"%");
+                        }
+                    });
+            return true;
+        }
+        return false;
     }
 }

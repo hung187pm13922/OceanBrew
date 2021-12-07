@@ -7,17 +7,19 @@ public class Search {
     String methol;
     String nameDrinks;
     String username;
+    String link;
 
     public Search() {
     }
 
-    public Search(String category, String garnish, String ingradients, String methol, String nameDrinks,String username) {
+    public Search(String category, String garnish, String ingradients, String link, String methol, String nameDrinks, String username) {
         this.category = category;
         this.garnish = garnish;
         this.ingradients = ingradients;
         this.methol = methol;
         this.nameDrinks = nameDrinks;
         this.username = username;
+        this.link = link;
     }
 
     public String getCategory() {
@@ -66,5 +68,13 @@ public class Search {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public String getLink() {
+        return link;
+    }
+
+    public void setLink(String link) {
+        this.link = link;
     }
 }

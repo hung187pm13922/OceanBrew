@@ -48,6 +48,7 @@ public class ResultSearchFragment extends Fragment {
     private String mParam2;
     String searchString;
     SharedPreferences sharedPreferences;
+    SharedPreferences.Editor editor;
     RecyclerView recyclerView;
     ResultAdapter mResultAdapter;
 
@@ -98,7 +99,8 @@ public class ResultSearchFragment extends Fragment {
 
         sharedPreferences = getContext().getSharedPreferences("session_user", Context.MODE_PRIVATE);
         String Username = sharedPreferences.getString("session_username", "");
-
+        editor = sharedPreferences.edit();
+        editor.putString("session_searchString",searchString);
         ArrayList<Drinks> AllItemList = new ArrayList<Drinks>();
         DatabaseReference databaseReference1 = FirebaseDatabase.getInstance().getReference("Drinks");
         databaseReference1.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -110,7 +112,7 @@ public class ResultSearchFragment extends Fragment {
                 DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Search");
                 for (int i = 0 ; i < AllItemList.size(); i++) {
                     if (AllItemList.get(i).getNameDrinks().toLowerCase().contains(searchString.toLowerCase())) {
-                        Search search = new Search(AllItemList.get(i).getCategory(), AllItemList.get(i).getGarnish(), AllItemList.get(i).getIngradients(), AllItemList.get(i).getMethol(), AllItemList.get(i).getNameDrinks(), Username);
+                        Search search = new Search(AllItemList.get(i).getCategory(), AllItemList.get(i).getGarnish(), AllItemList.get(i).getIngradients(), AllItemList.get(i).getLink(), AllItemList.get(i).getMethol(), AllItemList.get(i).getNameDrinks(), Username);
                         databaseReference.push().setValue(search);
                     }
 

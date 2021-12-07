@@ -1,5 +1,6 @@
 package com.example.oceanbrew.adapter;
 
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,11 +12,16 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.oceanbrew.DrinksDetailFragment;
+import com.example.oceanbrew.DrinksDetailSearchFragment;
 import com.example.oceanbrew.R;
 import com.example.oceanbrew.model.Search;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 public class ResultAdapter extends FirebaseRecyclerAdapter<Search, ResultAdapter.myViewHolder> {
 
@@ -27,13 +33,20 @@ public class ResultAdapter extends FirebaseRecyclerAdapter<Search, ResultAdapter
     protected void onBindViewHolder(@NonNull myViewHolder holder, int position, @NonNull Search model) {
         holder.mNameDrinks.setText(model.getNameDrinks());
         holder.mCateOfDrinks.setText("Type of Drinks: "+model.getCategory());
+        StorageReference reference = FirebaseStorage.getInstance().getReference("images").child(model.getLink());
+        reference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+            @Override
+            public void onSuccess(Uri uri) {
+                Glide.with(holder.itemView.getContext()).load(uri).into(holder.mImageDrinks);
+            }
+        });
         holder.mRelativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 AppCompatActivity activity=(AppCompatActivity)v.getContext();
                 activity.getSupportFragmentManager()
                         .beginTransaction().replace(R.id.body_container,
-                        new DrinksDetailFragment(model.getNameDrinks(), model.getIngradients(), model.getGarnish(), model.getMethol(), model.getCategory()))
+                        new DrinksDetailSearchFragment(model.getNameDrinks(), model.getIngradients(), model.getGarnish(), model.getMethol(), model.getCategory(), model.getLink()))
                         .addToBackStack(null).commit();
             }
         });

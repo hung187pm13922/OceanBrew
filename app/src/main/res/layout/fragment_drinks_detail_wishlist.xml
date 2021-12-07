@@ -20,7 +20,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
-                android:id="@+id/imageView8"
+                android:id="@+id/iv_imageDrinks"
                 android:layout_width="185dp"
                 android:layout_height="178dp"
                 android:layout_alignParentTop="true"

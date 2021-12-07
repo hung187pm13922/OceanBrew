@@ -44,13 +44,20 @@ public class DrinksOderByCateAdapter extends FirebaseRecyclerAdapter<Drinks, Dri
     protected void onBindViewHolder(@NonNull myViewHolder holder, int position, @NonNull Drinks model) {
         holder.mNameDrinks.setText(model.getNameDrinks());
         holder.mCateOfDrinks.setText("Type of Drinks: "+model.getCategory());
+        StorageReference reference = FirebaseStorage.getInstance().getReference("images").child(model.getLink());
+        reference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+            @Override
+            public void onSuccess(Uri uri) {
+                Glide.with(holder.itemView.getContext()).load(uri).into(holder.mImageDrinks);
+            }
+        });
         holder.mRelativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 AppCompatActivity activity=(AppCompatActivity)v.getContext();
                 activity.getSupportFragmentManager()
                         .beginTransaction().replace(R.id.body_container,
-                        new DrinksDetailFragment(model.getNameDrinks(), model.getIngradients(), model.getGarnish(), model.getMethol(), model.getCategory()))
+                        new DrinksDetailFragment(model.getNameDrinks(), model.getIngradients(), model.getGarnish(), model.getMethol(), model.getCategory(), model.getLink()))
                         .addToBackStack(null).commit();
             }
         });

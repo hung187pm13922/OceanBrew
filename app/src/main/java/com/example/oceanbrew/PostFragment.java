@@ -244,7 +244,7 @@ public class PostFragment extends Fragment {
                     nameImage = WhenPost.replaceAll(" ", "");
 
                     if (uploadImage(nameImage) == true) {
-                        Posts post = new Posts(Garnish, Ingredients, Method, NameOfDrink, "Waiting for approval", CategorySelected, Username, WhenPost, nameImage);
+                        Posts post = new Posts(Garnish, Ingredients, nameImage, Method, NameOfDrink, "Waiting for approval", CategorySelected, Username, WhenPost);
                         mPostDbRef.push().setValue(post);
                         AppCompatActivity activity=(AppCompatActivity)getContext();
                         activity.getSupportFragmentManager().beginTransaction().replace(R.id.body_container,new HomePageFragment()).addToBackStack(null).commit();

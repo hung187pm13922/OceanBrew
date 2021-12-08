@@ -93,15 +93,7 @@ public class DrinksOderByCateFragment extends Fragment {
         mHeaderCategory = view.findViewById(R.id.header_category);
         mHeaderCategory.setText(name);
 
-        ImageView mBackHome;
-        mBackHome = view.findViewById(R.id.btn_back_DrinksOderByCate);
-        mBackHome.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                AppCompatActivity activity=(AppCompatActivity)getContext();
-                activity.getSupportFragmentManager().beginTransaction().replace(R.id.body_container,new HomePageFragment()).addToBackStack(null).commit();
-            }
-        });
+
 
         mDrinksOderByCateRcv =  view.findViewById(R.id.rcv_DrinksOderByCategory);
         mDrinksOderByCateRcv.setLayoutManager(new LinearLayoutManager(getActivity()));

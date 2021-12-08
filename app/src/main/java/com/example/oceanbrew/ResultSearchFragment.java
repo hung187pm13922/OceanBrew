@@ -93,9 +93,8 @@ public class ResultSearchFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_result_search, container, false);
 
-        EditText editText;
-        editText = view.findViewById(R.id.ed_searchInResult);
-        editText.setText(searchString);
+
+
 
         sharedPreferences = getContext().getSharedPreferences("session_user", Context.MODE_PRIVATE);
         String Username = sharedPreferences.getString("session_username", "");
@@ -155,18 +154,7 @@ public class ResultSearchFragment extends Fragment {
             }
         });
 
-        Button back;
-        back = view.findViewById(R.id.btn_Back);
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                AppCompatActivity activity=(AppCompatActivity)v.getContext();
-                activity.getSupportFragmentManager()
-                        .beginTransaction().replace(R.id.body_container,
-                        new HomePageFragment())
-                        .addToBackStack(null).commit();
-            }
-        });
+
 
         return view;
     }

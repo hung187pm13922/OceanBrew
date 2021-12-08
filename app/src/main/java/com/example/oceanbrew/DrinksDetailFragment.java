@@ -133,19 +133,6 @@ public class DrinksDetailFragment extends Fragment {
             tableLayout.addView(row);
         }
 
-        ImageView mBack;
-        mBack = view.findViewById(R.id.btn_BackHome);
-        mBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                AppCompatActivity activity=(AppCompatActivity)v.getContext();
-                activity.getSupportFragmentManager()
-                        .beginTransaction().replace(R.id.body_container,
-                        new DrinksOderByCateFragment(Category))
-                        .addToBackStack(null).commit();
-            }
-        });
-
         SharedPreferences sharedPreferences;
         sharedPreferences = view.getContext().getSharedPreferences("session_user", Context.MODE_PRIVATE);
         String Username = sharedPreferences.getString("session_username", "");

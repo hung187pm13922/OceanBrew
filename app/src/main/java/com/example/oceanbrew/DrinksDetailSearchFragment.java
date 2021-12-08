@@ -133,21 +133,6 @@ public class DrinksDetailSearchFragment extends Fragment {
             tableLayout.addView(row);
         }
 
-        ImageView mBack;
-        mBack = view.findViewById(R.id.btn_BackHome);
-        mBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                SharedPreferences sharedPreferences;
-                sharedPreferences = view.getContext().getSharedPreferences("session_user", Context.MODE_PRIVATE);
-                String searchString = sharedPreferences.getString("session_searchString", "");
-                AppCompatActivity activity=(AppCompatActivity)v.getContext();
-                activity.getSupportFragmentManager()
-                        .beginTransaction().replace(R.id.body_container,
-                        new ResultSearchFragment(searchString))
-                        .addToBackStack(null).commit();
-            }
-        });
 
         SharedPreferences sharedPreferences;
         sharedPreferences = view.getContext().getSharedPreferences("session_user", Context.MODE_PRIVATE);

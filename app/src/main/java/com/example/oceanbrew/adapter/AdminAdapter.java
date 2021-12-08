@@ -2,6 +2,7 @@ package com.example.oceanbrew.adapter;
 
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.oceanbrew.ActionPost;
 import com.example.oceanbrew.R;
 import com.example.oceanbrew.model.Posts;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -42,7 +44,17 @@ public class AdminAdapter extends FirebaseRecyclerAdapter<Posts, AdminAdapter.my
         holder.item.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(holder.itemView.getContext().getApplicationContext(), ActionPost.class);
+                intent.putExtra("garnish",model.getGarnish());
+                intent.putExtra("ingradients",model.getIngredients());
+                intent.putExtra("link",model.getLink());
+                intent.putExtra("method",model.getMethod());
+                intent.putExtra("nameOfDrinks",model.getNameOfDrink());
+                intent.putExtra("status", model.getStatus());
+                intent.putExtra("typeOfDrinks",model.getTypeOfDrinks());
+                intent.putExtra("username",model.getUsername());
+                intent.putExtra("whenPost",model.getWhenPost());
+                v.getContext().startActivity(intent);
             }
         });
 

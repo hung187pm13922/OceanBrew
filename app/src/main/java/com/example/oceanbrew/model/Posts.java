@@ -14,7 +14,7 @@ public class Posts {
     public Posts() {
     }
 
-    public Posts(String garnish, String ingredients, String method, String nameOfDrink, String status, String typeOfDrinks, String username, String whenPost, String link) {
+    public Posts(String garnish, String ingredients, String link, String method, String nameOfDrink, String status, String typeOfDrinks, String username, String whenPost) {
         this.garnish = garnish;
         this.ingredients = ingredients;
         this.method = method;
